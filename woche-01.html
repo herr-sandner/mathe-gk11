@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Woche 1 – Kontrollaufgaben Mathe GK 11</title>
+<link rel="stylesheet" href="style.css">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<header>
+  <h1>Woche 1</h1>
+  <div class="meta">Ausgabe: <span class="datum" data-datum></span> · Terme, Gleichungen &amp; Polynomdivision</div>
+</header>
+
+<section class="aufgabe">
+  <h2>Aufgabe 1 – Gleichungen lösen</h2>
+  <p>Bestimme jeweils alle Lösungen:</p>
+  <p class="teil">a)&nbsp; \(2x^2 - 8x = 0\)</p>
+  <p class="teil">b)&nbsp; \(x^2 - 5x + 6 = 0\)</p>
+
+  <details>
+    <summary>Tipp anzeigen</summary>
+    <div class="tipp">
+      <p>a) Beide Summanden haben einen gemeinsamen Faktor – klammere ihn aus.</p>
+      <p>b) pq-Formel, oder suche zwei Zahlen mit Produkt \(6\) und Summe \(5\).</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Lösung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>a)</strong> \(2x(x-4)=0\). Ein Produkt ist null, wenn ein Faktor null ist:
+      \(x_1 = 0\) oder \(x_2 = 4\).</p>
+      <p><strong>b)</strong> pq-Formel mit \(p=-5,\ q=6\):
+      $$x_{1,2}=\frac{5}{2}\pm\sqrt{\frac{25}{4}-6}=\frac{5}{2}\pm\frac{1}{2}$$
+      Also \(x_1 = 3\) und \(x_2 = 2\) &nbsp;(Probe: \((x-2)(x-3)=0\)).</p>
+    </div>
+  </details>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 2 – Polynomdivision</h2>
+  <p>Gegeben ist \(f(x) = x^3 - 2x^2 - 5x + 6\).</p>
+  <p class="teil">a)&nbsp; Zeige, dass \(x = 1\) eine Nullstelle ist.</p>
+  <p class="teil">b)&nbsp; Führe die Polynomdivision \((x^3 - 2x^2 - 5x + 6):(x-1)\) durch und bestimme alle Nullstellen von \(f\).</p>
+
+  <details>
+    <summary>Tipp anzeigen</summary>
+    <div class="tipp">
+      <p>a) Setze \(x=1\) in \(f\) ein.</p>
+      <p>b) Nach der Division bleibt ein quadratischer Term übrig – dessen Nullstellen findest du mit der pq-Formel oder durch Faktorisieren.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Lösung anzeigen</summary>
+    <div class="loesung">
+      <p><strong>a)</strong> \(f(1)=1-2-5+6=0\) → \(x=1\) ist Nullstelle.</p>
+      <p><strong>b)</strong> Polynomdivision:
+      $$(x^3 - 2x^2 - 5x + 6):(x-1) = x^2 - x - 6$$
+      Rest \(0\). Die weiteren Nullstellen aus \(x^2 - x - 6 = 0\), also \((x-3)(x+2)=0\).</p>
+      <p>Nullstellen von \(f\): \(x_1 = 1,\quad x_2 = 3,\quad x_3 = -2\).</p>
+    </div>
+  </details>
+</section>
+
+<p><a href="index.html">← zur Übersicht</a></p>
+
+<script src="schuljahr.js"></script>
+<script>schreibeDatum(1);</script>
+</body>
+</html>

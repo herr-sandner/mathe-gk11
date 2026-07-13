@@ -1,0 +1,61 @@
+/* Gemeinsames Styling für alle Seiten. Einmal hier ändern = überall geändert. */
+:root{
+  --akzent:#2c5f8a;
+  --akzent-hell:#eaf1f7;
+  --text:#1f2a33;
+  --grau:#6b7681;
+  --rahmen:#dfe5ea;
+}
+*{box-sizing:border-box}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--text);
+  line-height:1.55;
+  max-width:760px;
+  margin:0 auto;
+  padding:2rem 1.2rem 4rem;
+  background:#fff;
+}
+header{border-bottom:3px solid var(--akzent);padding-bottom:.9rem;margin-bottom:1.6rem}
+h1{font-size:1.6rem;margin:0}
+.meta{color:var(--grau);font-size:.9rem;margin-top:.25rem}
+.meta .datum{color:var(--akzent);font-weight:600}
+
+/* Aufgaben-Karten */
+.aufgabe{
+  border:1px solid var(--rahmen);
+  border-radius:10px;
+  padding:1.1rem 1.3rem;
+  margin-bottom:1.4rem;
+}
+.aufgabe h2{font-size:1.1rem;margin:0 0 .6rem;color:var(--akzent)}
+.teil{margin:.35rem 0}
+
+/* Aufklappbare Tipp-/Lösungsblöcke */
+details{margin-top:.9rem;border-top:1px dashed var(--rahmen);padding-top:.7rem}
+summary{
+  cursor:pointer;font-weight:600;color:var(--akzent);
+  list-style:none;display:inline-flex;align-items:center;gap:.4rem;user-select:none;
+}
+summary::before{content:"▶";font-size:.7rem;transition:transform .15s}
+details[open] summary::before{transform:rotate(90deg)}
+.tipp{background:var(--akzent-hell);border-radius:8px;padding:.7rem 1rem;margin-top:.7rem;font-size:.95rem}
+.loesung{background:#fafbfc;border-radius:8px;padding:.8rem 1rem;margin-top:.7rem;font-size:.97rem}
+.tipp p,.loesung p{margin:.4rem 0}
+
+/* Übersichtsseite */
+.wochenliste{list-style:none;padding:0}
+.wochenliste li{margin:.5rem 0}
+.wochenliste a{
+  display:block;text-decoration:none;color:var(--text);
+  border:1px solid var(--rahmen);border-radius:8px;padding:.8rem 1rem;transition:background .12s;
+}
+.wochenliste a:hover{background:var(--akzent-hell)}
+.wochenliste .nr{color:var(--akzent);font-weight:700;margin-right:.5rem}
+
+/* Beim Drucken alles offen zeigen */
+@media print{
+  summary{display:none}
+  details{border:none}
+  .tipp,.loesung{display:block !important}
+}
