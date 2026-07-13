@@ -2,6 +2,10 @@
   Selbstkontrolle: vergleicht die eingegebenen Zahlen (als Menge) mit der
   in data-loesung hinterlegten Lösung. Reihenfolge und Schreibweise egal.
   Beispiele, die als "0; 4" erkannt werden: "0;4", "4 0", "x1=0 und x2=4".
+
+  Sichtbarkeit wird über element.style.display gesteuert. Zusammen mit dem
+  Inline-style="display:none" im HTML ist das unabhängig von der externen
+  style.css – d. h. cache-fest.
 */
 document.addEventListener('DOMContentLoaded', function () {
   function zahlen(str) {
@@ -29,15 +33,16 @@ document.addEventListener('DOMContentLoaded', function () {
       if (ist === '') { fb.textContent = 'Bitte etwas eingeben.'; fb.className = 'feedback'; return; }
       if (ist === soll) { fb.textContent = '✓ Richtig'; fb.className = 'feedback ok'; }
       else { fb.textContent = '✗ Noch nicht richtig'; fb.className = 'feedback nein'; }
-      if (link) link.hidden = false;
+      if (link) link.style.display = 'inline-block';   // Link erst nach dem Prüfen zeigen
     }
     if (btn) btn.addEventListener('click', pruefe);
     if (inp) inp.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') { e.preventDefault(); pruefe(); }
     });
     if (link && weg) link.addEventListener('click', function () {
-      weg.hidden = !weg.hidden;
-      link.textContent = weg.hidden ? 'Lösungsweg anzeigen' : 'Lösungsweg verbergen';
+      var versteckt = (weg.style.display === 'none' || weg.style.display === '');
+      weg.style.display = versteckt ? 'block' : 'none';
+      link.textContent = versteckt ? 'Lösungsweg verbergen' : 'Lösungsweg anzeigen';
     });
   });
 });
