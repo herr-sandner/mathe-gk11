@@ -23,7 +23,7 @@ var PASSWORT = "pgg-mathe";
       "font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif";
     ov.innerHTML =
       '<div style="text-align:center;max-width:320px;width:88%;padding:1.5rem">' +
-      '<h1 style="font-size:1.2rem;font-weight:600;color:#33302c;margin:0 0 1rem">Kontrollaufgaben Mathe GK 11</h1>' +
+      '<h1 style="font-size:1.2rem;font-weight:600;color:#33302c;margin:0 0 1rem">Freiwillige Aufgaben Mathe Grundkurs 11</h1>' +
       '<p style="color:#9a8f83;font-size:.9rem;margin:0 0 1rem">Bitte Passwort eingeben:</p>' +
       '<input id="pw-feld" type="password" style="font:inherit;padding:.5rem .6rem;border:1px solid #efe6dd;border-radius:6px;width:100%;box-sizing:border-box">' +
       '<button id="pw-btn" style="font:inherit;margin-top:.7rem;padding:.5rem 1rem;border:none;border-radius:6px;background:#e0955b;color:#fff;cursor:pointer;width:100%">Weiter</button>' +
