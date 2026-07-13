@@ -11,6 +11,7 @@
   --nein:#c0563a;
 }
 *{box-sizing:border-box}
+[hidden]{display:none !important}  /* hidden soll IMMER gewinnen */
 body{
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color:var(--text);
