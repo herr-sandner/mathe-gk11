@@ -17,13 +17,13 @@
 </header>
 
 <section class="aufgabe">
-  <h2>Aufgabe 1 – Gleichungen lösen</h2>
+  <h2>Aufgabe 1: Gleichungen lösen</h2>
   <p>Löse jeweils die Gleichung und gib alle Lösungen ein (mehrere mit Semikolon trennen).</p>
 
   <div class="teil">
     <p>a)&nbsp; \(5x - 3 = 2x + 9\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Bring alle \(x\) auf eine Seite und die Zahlen auf die andere.</p></div>
+      <div class="tipp"><p>Bring alle Termglieder mit \(x\) auf eine Seite und die Zahlen auf die andere.</p></div>
     </details>
     <div class="check" data-loesung="4">
       <input type="text" class="antwort" placeholder="Lösung" aria-label="Deine Lösung für a">
@@ -39,7 +39,7 @@
   <div class="teil">
     <p>b)&nbsp; \(\dfrac{x+2}{3} - \dfrac{x-1}{4} = 2\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Multipliziere zuerst beide Seiten mit dem Hauptnenner \(12\) – dann fallen die Brüche weg.</p></div>
+      <div class="tipp"><p>Multipliziere zuerst beide Seiten mit dem Hauptnenner \(12\), dann fallen die Brüche weg.</p></div>
     </details>
     <div class="check" data-loesung="13">
       <input type="text" class="antwort" placeholder="Lösung" aria-label="Deine Lösung für b">
@@ -56,7 +56,7 @@
   <div class="teil">
     <p>c)&nbsp; \(x^2 + 2x - 15 = 0\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>pq-Formel – oder suche zwei Zahlen mit Produkt \(-15\) und Summe \(+2\).</p></div>
+      <div class="tipp"><p>Nutze die pq-Formel oder suche zwei Zahlen mit Produkt \(-15\) und Summe \(+2\). Dann kannst du faktorisieren und die Nullstellen ablesen.</p></div>
     </details>
     <div class="check" data-loesung="-5; 3">
       <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für c">
@@ -74,7 +74,7 @@
   <div class="teil">
     <p>d)&nbsp; \(2x^2 - 14x + 20 = 0\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Du kannst zuerst durch den Leitkoeffizienten teilen – oder direkt die abc-(Mitternachts-)Formel nutzen.</p></div>
+      <div class="tipp"><p>Du kannst zuerst den Leitkoeffizienten 2 ausklammern (bzw. die ganze Gleichung einfach durch 2 teilen) und danach die pq-Formel anwenden. Alternativ kannst du  direkt die abc-(Mitternachts-)Formel nutzen.</p></div>
     </details>
     <div class="check" data-loesung="2; 5">
       <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für d">
@@ -82,7 +82,7 @@
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
-        <p>Durch \(2\) teilen: \(x^2 - 7x + 10 = 0\).</p>
+        <p>Division der Gleichung durch \(2\) liefert: \(x^2 - 7x + 10 = 0\).</p>
         <p>pq-Formel: \(x_{1,2} = \tfrac{7}{2} \pm \sqrt{\tfrac{49}{4} - 10} = \tfrac{7}{2} \pm \tfrac{3}{2}\)
         \(\Rightarrow x_1 = 5,\ x_2 = 2\) &nbsp;(Probe: \((x-2)(x-5)=0\)).</p>
       </div>
@@ -92,7 +92,7 @@
   <div class="teil">
     <p>e)&nbsp; \(x^4 - 13x^2 + 36 = 0\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Setze \(u = x^2\). Löse zuerst nach \(u\), danach zurück zu \(x\) – Vorzeichen beachten!</p></div>
+      <div class="tipp"><p>Setze \(u = x^2\) ein. Ersetze also jedes \(x^2\) durch ein \(u\). Löse zuerst nach \(u\) auf und danach dann zurück zu \(x\). Vorzeichen beachten!</p></div>
     </details>
     <div class="check" data-loesung="-3; -2; 2; 3">
       <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für e">
@@ -112,7 +112,7 @@
   <div class="teil">
     <p>f)&nbsp; \(x^3 - 2x^2 - 3x = 0\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Klammere \(x\) aus. Dann Nullproduktregel auf die Faktoren anwenden.</p></div>
+      <div class="tipp"><p>Klammere \(x\) aus. Dann Nullproduktregel (= ein Produkt ist \(0\) genau dann, wenn mindestens einer der Faktoren\(0\) ist) auf die Faktoren anwenden.</p></div>
     </details>
     <div class="check" data-loesung="0; 3; -1">
       <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für f">
@@ -121,15 +121,15 @@
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
         <p>\(x\) ausklammern: \(x\,(x^2 - 2x - 3) = 0\).</p>
-        <p>Faktorisieren: \(x\,(x-3)(x+1) = 0\).</p>
-        <p>Nullproduktregel: \(x_1 = 0,\ x_2 = 3,\ x_3 = -1\).</p>
+        <p>Also ist nach der Nullproduktregel \(x\,(x^2 - 2x - 3) = 0\), wenn \(x = 0\) oder \(x^2 - 2x - 3 = 0\).</p>
+        <p>Die pq-Formel liefert dann: \(x_1 = 0,\ x_2 = 3,\ x_3 = -1\).</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="aufgabe">
-  <h2>Aufgabe 2 – Polynomdivision (Grad 3)</h2>
+  <h2>Aufgabe 2: Polynomdivision (Grad 3)</h2>
   <p>Gegeben ist die Funktion \(f\) mit \(f(x) = x^3 - 3x^2 - 4x + 12\).</p>
 
   <div class="teil">
