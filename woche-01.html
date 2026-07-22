@@ -18,73 +18,185 @@
 
 <section class="aufgabe">
   <h2>Aufgabe 1 – Gleichungen lösen</h2>
-  <p>Bestimme jeweils alle Lösungen und gib sie ein (mehrere mit Semikolon trennen):</p>
+  <p>Löse jeweils die Gleichung und gib alle Lösungen ein (mehrere mit Semikolon trennen).</p>
 
   <div class="teil">
-    <p>a)&nbsp; \(2x^2 - 8x = 0\)</p>
+    <p>a)&nbsp; \(5x - 3 = 2x + 9\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Beide Summanden haben einen gemeinsamen Faktor – klammere ihn aus.</p></div>
+      <div class="tipp"><p>Bring alle \(x\) auf eine Seite und die Zahlen auf die andere.</p></div>
     </details>
-    <div class="check" data-loesung="0; 4">
-      <input type="text" class="antwort" placeholder="z. B. 5; -2" aria-label="Deine Lösung für a">
+    <div class="check" data-loesung="4">
+      <input type="text" class="antwort" placeholder="Lösung" aria-label="Deine Lösung für a">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
-        <p>\(2x(x-4)=0\). Ein Produkt ist null, wenn ein Faktor null ist:
-        \(x_1 = 0\) oder \(x_2 = 4\).</p>
+        <p>\(5x - 3 = 2x + 9 \;\Rightarrow\; 3x = 12 \;\Rightarrow\; x = 4\).</p>
       </div>
     </div>
   </div>
 
   <div class="teil">
-    <p>b)&nbsp; \(x^2 - 5x + 6 = 0\)</p>
+    <p>b)&nbsp; \(\dfrac{x+2}{3} - \dfrac{x-1}{4} = 2\)</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>pq-Formel, oder suche zwei Zahlen mit Produkt \(6\) und Summe \(5\).</p></div>
+      <div class="tipp"><p>Multipliziere zuerst beide Seiten mit dem Hauptnenner \(12\) – dann fallen die Brüche weg.</p></div>
     </details>
-    <div class="check" data-loesung="2; 3">
-      <input type="text" class="antwort" placeholder="z. B. 5; -2" aria-label="Deine Lösung für b">
+    <div class="check" data-loesung="13">
+      <input type="text" class="antwort" placeholder="Lösung" aria-label="Deine Lösung für b">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
-        <p>pq-Formel mit \(p=-5,\ q=6\):
-        $$x_{1,2}=\frac{5}{2}\pm\sqrt{\frac{25}{4}-6}=\frac{5}{2}\pm\frac{1}{2}$$
-        Also \(x_1 = 3\) und \(x_2 = 2\) &nbsp;(Probe: \((x-2)(x-3)=0\)).</p>
+        <p>Mit \(12\) multiplizieren: \(4(x+2) - 3(x-1) = 24\).</p>
+        <p>\(4x + 8 - 3x + 3 = 24 \;\Rightarrow\; x + 11 = 24 \;\Rightarrow\; x = 13\).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>c)&nbsp; \(x^2 + 2x - 15 = 0\)</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>pq-Formel – oder suche zwei Zahlen mit Produkt \(-15\) und Summe \(+2\).</p></div>
+    </details>
+    <div class="check" data-loesung="-5; 3">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für c">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>pq-Formel mit \(p=2,\ q=-15\):
+        $$x_{1,2} = -1 \pm \sqrt{1 + 15} = -1 \pm 4$$
+        Also \(x_1 = 3\) und \(x_2 = -5\) &nbsp;(Probe: \((x-3)(x+5)=0\)).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>d)&nbsp; \(2x^2 - 14x + 20 = 0\)</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Du kannst zuerst durch den Leitkoeffizienten teilen – oder direkt die abc-(Mitternachts-)Formel nutzen.</p></div>
+    </details>
+    <div class="check" data-loesung="2; 5">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für d">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>Durch \(2\) teilen: \(x^2 - 7x + 10 = 0\).</p>
+        <p>pq-Formel: \(x_{1,2} = \tfrac{7}{2} \pm \sqrt{\tfrac{49}{4} - 10} = \tfrac{7}{2} \pm \tfrac{3}{2}\)
+        \(\Rightarrow x_1 = 5,\ x_2 = 2\) &nbsp;(Probe: \((x-2)(x-5)=0\)).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>e)&nbsp; \(x^4 - 13x^2 + 36 = 0\)</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Setze \(u = x^2\). Löse zuerst nach \(u\), danach zurück zu \(x\) – Vorzeichen beachten!</p></div>
+    </details>
+    <div class="check" data-loesung="-3; -2; 2; 3">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für e">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>Substitution \(u = x^2\): \(u^2 - 13u + 36 = 0\).</p>
+        <p>\(u_{1,2} = \tfrac{13}{2} \pm \sqrt{\tfrac{169}{4} - 36} = \tfrac{13}{2} \pm \tfrac{5}{2}\)
+        \(\Rightarrow u_1 = 9,\ u_2 = 4\).</p>
+        <p>Rücksubstitution: \(x^2 = 9 \Rightarrow x = \pm 3\); \(\;x^2 = 4 \Rightarrow x = \pm 2\).</p>
+        <p>Lösungen: \(x \in \{-3,\ -2,\ 2,\ 3\}\).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>f)&nbsp; \(x^3 - 2x^2 - 3x = 0\)</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Klammere \(x\) aus. Dann Nullproduktregel auf die Faktoren anwenden.</p></div>
+    </details>
+    <div class="check" data-loesung="0; 3; -1">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Deine Lösungen für f">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>\(x\) ausklammern: \(x\,(x^2 - 2x - 3) = 0\).</p>
+        <p>Faktorisieren: \(x\,(x-3)(x+1) = 0\).</p>
+        <p>Nullproduktregel: \(x_1 = 0,\ x_2 = 3,\ x_3 = -1\).</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="aufgabe">
-  <h2>Aufgabe 2 – Polynomdivision</h2>
-  <p>Gegeben ist \(f(x) = x^3 - 2x^2 - 5x + 6\).</p>
+  <h2>Aufgabe 2 – Polynomdivision (Grad 3)</h2>
+  <p>Gegeben ist die Funktion \(f\) mit \(f(x) = x^3 - 3x^2 - 4x + 12\).</p>
 
   <div class="teil">
-    <p>a)&nbsp; Zeige, dass \(x = 1\) eine Nullstelle ist. <span class="meta">(Nachweis – selbst prüfen)</span></p>
+    <p>a)&nbsp; Zeige, dass \(x = 2\) eine Nullstelle von \(f\) ist. <span class="meta">(Nachweis)</span></p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Setze \(x=1\) in \(f\) ein.</p></div>
+      <div class="tipp"><p>Setze \(x = 2\) in \(f\) ein.</p></div>
     </details>
     <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
-      <div class="loesung"><p>\(f(1)=1-2-5+6=0\) → \(x=1\) ist Nullstelle.</p></div>
+      <div class="loesung"><p>\(f(2) = 8 - 12 - 8 + 12 = 0\) &nbsp;→&nbsp; \(x = 2\) ist Nullstelle.</p></div>
     </details>
   </div>
 
   <div class="teil">
-    <p>b)&nbsp; Bestimme mit Polynomdivision \((\ldots):(x-1)\) alle Nullstellen von \(f\).</p>
+    <p>b)&nbsp; Dividiere \(f\) durch \((x-2)\) und bestimme die beiden <em>weiteren</em> Nullstellen von \(f\).</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Nach der Division bleibt ein quadratischer Term übrig – dessen Nullstellen findest du mit der pq-Formel oder durch Faktorisieren.</p></div>
+      <div class="tipp"><p>Der Rest der Division muss \(0\) sein; den übrig bleibenden quadratischen Term löst du wie gewohnt.</p></div>
     </details>
-    <div class="check" data-loesung="1; 3; -2">
-      <input type="text" class="antwort" placeholder="alle Nullstellen, mit ; getrennt" aria-label="Deine Lösung für b">
+    <div class="check" data-loesung="3; -2">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Nullstellen">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
         <p>Polynomdivision:
-        $$(x^3 - 2x^2 - 5x + 6):(x-1) = x^2 - x - 6$$
-        Rest \(0\). Weitere Nullstellen aus \(x^2 - x - 6 = 0\), also \((x-3)(x+2)=0\).</p>
-        <p>Nullstellen von \(f\): \(x_1 = 1,\quad x_2 = 3,\quad x_3 = -2\).</p>
+        $$(x^3 - 3x^2 - 4x + 12) : (x-2) = x^2 - x - 6$$
+        Rest \(0\). Die weiteren Nullstellen aus \(x^2 - x - 6 = 0\), also \((x-3)(x+2)=0\):</p>
+        <p>\(x = 3\) und \(x = -2\). &nbsp;(Alle Nullstellen von \(f\): \(-2,\ 2,\ 3\).)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 3 – Polynomdivision (Grad 4)</h2>
+  <p>Gegeben ist die Funktion \(f\) mit \(f(x) = x^4 - 6x^3 + 3x^2 + 26x - 24\).
+  Zwei Nullstellen sind bereits bekannt: \(x = 1\) und \(x = -2\).</p>
+
+  <div class="teil">
+    <p>a)&nbsp; Bestätige durch Einsetzen, dass \(x = 1\) und \(x = -2\) Nullstellen von \(f\) sind. <span class="meta">(Nachweis)</span></p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Setze \(x = 1\) und danach \(x = -2\) in \(f\) ein.</p></div>
+    </details>
+    <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
+      <div class="loesung">
+        <p>\(f(1) = 1 - 6 + 3 + 26 - 24 = 0\) ✓</p>
+        <p>\(f(-2) = 16 + 48 + 12 - 52 - 24 = 0\) ✓</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Bestimme durch zweifache Polynomdivision (durch \((x-1)\) und \((x+2)\)) die beiden <em>weiteren</em> Nullstellen von \(f\).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Teile \(f\) zuerst durch \((x-1)\), das Ergebnis dann durch \((x+2)\). Übrig bleibt ein quadratischer Term – dessen Nullstellen sind gesucht.</p></div>
+    </details>
+    <div class="check" data-loesung="3; 4">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Nullstellen">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>Erste Division:
+        $$(x^4 - 6x^3 + 3x^2 + 26x - 24) : (x-1) = x^3 - 5x^2 - 2x + 24$$
+        Zweite Division:
+        $$(x^3 - 5x^2 - 2x + 24) : (x+2) = x^2 - 7x + 12$$
+        \(x^2 - 7x + 12 = 0 \Rightarrow (x-3)(x-4)=0\):</p>
+        <p>\(x = 3\) und \(x = 4\). &nbsp;(Alle Nullstellen von \(f\): \(-2,\ 1,\ 3,\ 4\).)</p>
       </div>
     </div>
   </div>
