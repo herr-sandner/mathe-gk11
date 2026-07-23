@@ -87,3 +87,15 @@ summary:hover{color:var(--akzent)}
   summary,.pruefen,.antwort,.weg-link,.feedback{display:none}
   .tipp,.loesung,.weg{display:block !important}
 }
+
+/* Auswahl-Aufgaben (Multiple Choice) */
+.choice{margin:.5rem 0 .2rem}
+.opt{
+  font:inherit;font-size:.85rem;padding:.35rem .7rem;margin:.15rem .3rem .15rem 0;
+  cursor:pointer;border:1px solid var(--linie);border-radius:6px;background:#fff;color:var(--text);
+}
+.opt:hover{border-color:var(--akzent)}
+.opt.sel{background:var(--akzent);color:#fff;border-color:var(--akzent)}
+.choice .feedback{display:block;margin:.35rem 0 0}
+.choice .weg-link{margin-top:.4rem}
+@media print{ .opt,.choice .feedback{display:none} }

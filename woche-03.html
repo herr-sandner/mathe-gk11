@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="schutz.js?v=4"></script>
+<title>Woche 3 – Kontrollaufgaben Mathe GK 11</title>
+<link rel="stylesheet" href="style.css?v=5">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<header>
+  <h1>Woche 3</h1>
+  <div class="meta">Ausgabe: <span data-datum></span> · Symmetrie, Verhalten im Unendlichen &amp; Nullstellen</div>
+</header>
+
+<section class="aufgabe">
+  <h2>Aufgabe 1: Symmetrie und Verhalten im Unendlichen</h2>
+
+  <div class="teil">
+    <p>a)&nbsp; Untersuche jede Funktion auf Symmetrie (achsensymmetrisch zur \(y\)-Achse, punktsymmetrisch zum Ursprung oder keine).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Setze \(-x\) ein: Kommt \(f(x)\) heraus → achsensymmetrisch; kommt \(-f(x)\) heraus → punktsymmetrisch; sonst keine.</p></div>
+    </details>
+  <div class="teil">
+    <p>\(f_1(x)=x^4-3x^2+1\)</p>
+    <div class="choice" data-correct="achse"><button type="button" class="opt" data-val="achse">achsensymmetrisch</button><button type="button" class="opt" data-val="punkt">punktsymmetrisch</button><button type="button" class="opt" data-val="keine">keine</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Nur gerade Potenzen: \(f_1(-x)=x^4-3x^2+1=f_1(x)\) → achsensymmetrisch.</p></div></div>
+  </div>
+  <div class="teil">
+    <p>\(f_2(x)=x^5-4x^3+x\)</p>
+    <div class="choice" data-correct="punkt"><button type="button" class="opt" data-val="achse">achsensymmetrisch</button><button type="button" class="opt" data-val="punkt">punktsymmetrisch</button><button type="button" class="opt" data-val="keine">keine</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Nur ungerade Potenzen: \(f_2(-x)=-x^5+4x^3-x=-f_2(x)\) → punktsymmetrisch.</p></div></div>
+  </div>
+  <div class="teil">
+    <p>\(f_3(x)=-x^6+2x^3\)</p>
+    <div class="choice" data-correct="keine"><button type="button" class="opt" data-val="achse">achsensymmetrisch</button><button type="button" class="opt" data-val="punkt">punktsymmetrisch</button><button type="button" class="opt" data-val="keine">keine</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>\(f_3(-x)=-x^6-2x^3\) ist weder \(f_3(x)\) noch \(-f_3(x)\) → keine Symmetrie.</p></div></div>
+  </div>
+  <div class="teil">
+    <p>\(f_4(x)=-x^3+3x\)</p>
+    <div class="choice" data-correct="punkt"><button type="button" class="opt" data-val="achse">achsensymmetrisch</button><button type="button" class="opt" data-val="punkt">punktsymmetrisch</button><button type="button" class="opt" data-val="keine">keine</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Nur ungerade Potenzen: \(f_4(-x)=x^3-3x=-f_4(x)\) → punktsymmetrisch.</p></div></div>
+  </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Gib für dieselben Funktionen das Verhalten für \(x \to \pm\infty\) an.</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Lies Grad und Leitkoeffizient ab: gerader/ungerader Grad und das Vorzeichen des Leitkoeffizienten bestimmen die beiden Äste.</p></div>
+    </details>
+  <div class="teil">
+    <p>\(f_1(x)=x^4-3x^2+1\)</p>
+    <div class="choice" data-correct="3"><button type="button" class="opt" data-val="1">links −∞, rechts +∞</button><button type="button" class="opt" data-val="2">links +∞, rechts −∞</button><button type="button" class="opt" data-val="3">links +∞, rechts +∞</button><button type="button" class="opt" data-val="4">links −∞, rechts −∞</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Grad 4 (gerade), Leitkoeffizient \(+1>0\): beide Äste nach \(+\infty\).</p></div></div>
+  </div>
+  <div class="teil">
+    <p>\(f_2(x)=x^5-4x^3+x\)</p>
+    <div class="choice" data-correct="1"><button type="button" class="opt" data-val="1">links −∞, rechts +∞</button><button type="button" class="opt" data-val="2">links +∞, rechts −∞</button><button type="button" class="opt" data-val="3">links +∞, rechts +∞</button><button type="button" class="opt" data-val="4">links −∞, rechts −∞</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Grad 5 (ungerade), Leitkoeffizient \(+1>0\): links \(-\infty\), rechts \(+\infty\).</p></div></div>
+  </div>
+  <div class="teil">
+    <p>\(f_3(x)=-x^6+2x^3\)</p>
+    <div class="choice" data-correct="4"><button type="button" class="opt" data-val="1">links −∞, rechts +∞</button><button type="button" class="opt" data-val="2">links +∞, rechts −∞</button><button type="button" class="opt" data-val="3">links +∞, rechts +∞</button><button type="button" class="opt" data-val="4">links −∞, rechts −∞</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Grad 6 (gerade), Leitkoeffizient \(-1<0\): beide Äste nach \(-\infty\).</p></div></div>
+  </div>
+  <div class="teil">
+    <p>\(f_4(x)=-x^3+3x\)</p>
+    <div class="choice" data-correct="2"><button type="button" class="opt" data-val="1">links −∞, rechts +∞</button><button type="button" class="opt" data-val="2">links +∞, rechts −∞</button><button type="button" class="opt" data-val="3">links +∞, rechts +∞</button><button type="button" class="opt" data-val="4">links −∞, rechts −∞</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Grad 3 (ungerade), Leitkoeffizient \(-1<0\): links \(+\infty\), rechts \(-\infty\).</p></div></div>
+  </div>
+  </div>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 2: Nullstellen mit Polynomdivision</h2>
+  <p>Gegeben ist \(f(x) = x^3 + 2x^2 - 5x - 6\).</p>
+
+  <div class="teil">
+    <p>a)&nbsp; Zeige, dass \(x = 2\) eine Nullstelle von \(f\) ist. <span class="meta">(Nachweis)</span></p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Setze \(x = 2\) in \(f\) ein.</p></div>
+    </details>
+    <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
+      <div class="loesung"><p>\(f(2) = 8 + 8 - 10 - 6 = 0\) &nbsp;→&nbsp; \(x = 2\) ist Nullstelle.</p></div>
+    </details>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Dividiere \(f\) durch \((x-2)\) und bestimme die beiden <em>weiteren</em> Nullstellen von \(f\).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Der Rest der Division muss \(0\) sein; den übrig bleibenden quadratischen Term löst du wie gewohnt.</p></div>
+    </details>
+    <div class="check" data-loesung="-1; -3">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Nullstellen">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>Polynomdivision (schriftlich gerechnet):</p>
+        <pre style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.45;overflow-x:auto;background:#faf7f4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0">  x^3 + 2x^2 - 5x - 6    :   (x - 2)   =   x^2 + 4x + 3
+-(x^3 - 2x^2)
+  ──────────
+        4x^2 - 5x
+      -(4x^2 - 8x)
+        ─────────
+               3x - 6
+             -(3x - 6)
+               ──────
+                    0</pre>
+        <p>Es bleibt \(x^2 + 4x + 3\) mit Rest \(0\). Die weiteren Nullstellen aus \(x^2 + 4x + 3 = 0\), also \((x+1)(x+3)=0\):</p>
+        <p>\(x = -1\) und \(x = -3\). &nbsp;(Alle Nullstellen von \(f\): \(-3,\ -1,\ 2\).)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 3: Koeffizient bestimmen</h2>
+
+  <div class="teil">
+    <p>a)&nbsp; Bestimme \(a\) so, dass \(f(x) = x^4 + (2a-4)\,x^3 - 3x^2 + 1\) achsensymmetrisch ist.</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Achsensymmetrisch heißt: nur gerade Potenzen. Der Koeffizient vor der ungeraden Potenz \(x^3\) muss \(0\) sein.</p></div>
+    </details>
+    <div class="check" data-loesung="2">
+      <input type="text" class="antwort" placeholder="a =" aria-label="Wert von a">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>Der \(x^3\)-Term muss verschwinden: \(2a - 4 = 0 \Rightarrow a = 2\).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Bestimme \(c\) so, dass der Graph von \(g(x) = x^3 - c\,x + 4\) durch den Punkt \(P(2 \mid 0)\) verläuft (\(x=2\) also eine Nullstelle ist).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Setze die Koordinaten von \(P\) ein: \(g(2) = 0\).</p></div>
+    </details>
+    <div class="check" data-loesung="6">
+      <input type="text" class="antwort" placeholder="c =" aria-label="Wert von c">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>\(g(2) = 8 - 2c + 4 = 0 \Rightarrow 12 - 2c = 0 \Rightarrow c = 6\).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 4: Vielfachheit von Nullstellen</h2>
+  <p>Gegeben ist \(f(x) = (x+1)^2 \,(x-2)\,(x-4)^3\).</p>
+
+  <div class="teil">
+    <p>a)&nbsp; Gib alle Nullstellen mit ihrer Vielfachheit an. <span class="meta">(Selbstkontrolle)</span></p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Der Exponent eines Linearfaktors ist die Vielfachheit der zugehörigen Nullstelle.</p></div>
+    </details>
+    <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
+      <div class="loesung">
+        <p>\(x = -1\) (2-fach), \(x = 2\) (einfach), \(x = 4\) (3-fach).</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; An welcher Nullstelle <em>berührt</em> der Graph die \(x\)-Achse nur, ohne sie zu schneiden? Gib die \(x\)-Stelle an.</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Gerade Vielfachheit → Berührpunkt; ungerade Vielfachheit → Vorzeichenwechsel (Durchgang).</p></div>
+    </details>
+    <div class="check" data-loesung="-1">
+      <input type="text" class="antwort" placeholder="x =" aria-label="x-Stelle des Berührpunkts">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>Nur \(x=-1\) hat gerade Vielfachheit (2-fach) → dort berührt der Graph die \(x\)-Achse. Bei \(x=2\) (einfach) und \(x=4\) (3-fach) wird sie geschnitten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p><a href="index.html">← zur Übersicht</a></p>
+
+<script src="schuljahr.js"></script>
+<script>schreibeDatum(3);</script>
+<script src="kontrolle.js?v=4"></script>
+<script src="choice.js?v=1"></script>
+</body>
+</html>
