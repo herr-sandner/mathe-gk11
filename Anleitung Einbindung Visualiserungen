@@ -1,0 +1,16 @@
+  <!-- interne HTML-Seite -->
+  <li><a href="vis-sinus-einheitskreis.html">
+    <span><span class="nr">▸</span>Sinus am Einheitskreis</span>
+    <span class="typ">Seite</span>
+  </a></li>
+
+  <!-- Link zu GeoGebra (öffnet neuen Tab) -->
+  <li><a href="https://www.geogebra.org/m/DEINE-ID" target="_blank" rel="noopener">
+    <span><span class="nr">▸</span>Parameter a, b, c, d am Sinusgraphen</span>
+    <span class="typ">GeoGebra ↗</span>
+  </a></li>
+
+  <li><a href="https://www.geogebra.org/m/DEINE-ID" target="_blank" rel="noopener">
+    <span><span class="nr">▸</span>Kosinus als verschobener Sinus</span>
+    <span class="typ">GeoGebra ↗</span>
+  </a></li>
