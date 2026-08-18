@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polynomdivision</title>
+<style>
+  :root{
+    --akzent:#2E5AAC; --akzent-dunkel:#1c3a72;
+    --grau:#666; --bg:#ffffff; --panel:#f2f5fb; --rand:#cdd8ee;
+    --quot:#1c3a72;      /* Quotient (blau) */
+    --rest:#C77F1A;      /* Rest (orange) */
+    --ok:#1f7a44; --fehler:#c0392b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;color:#1b1b1b;background:var(--bg);}
+  .wrap{max-width:1000px;margin:0 auto;padding:16px;}
+  h1{font-size:1.25rem;color:var(--akzent-dunkel);margin:.2rem 0 .2rem;}
+  .unter{color:var(--grau);font-size:.9rem;margin:0 0 1rem;}
+  .layout{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;}
+  .figur{flex:2 1 460px;min-width:300px;}
+  .seite{flex:1 1 270px;min-width:250px;}
+  .panel{background:var(--panel);border:1px solid var(--rand);border-radius:10px;padding:14px 16px;margin-bottom:14px;}
+
+  /* Ergebnis-Formel */
+  .ergebnis{background:#fff;border:1px solid var(--rand);border-radius:10px;padding:14px 16px;margin-bottom:14px;font-size:1.12rem;line-height:1.7;}
+  .ergebnis .frml{font-variant-numeric:tabular-nums;}
+  .ergebnis .q{color:var(--quot);font-weight:700;}
+  .ergebnis .r{color:var(--rest);font-weight:700;}
+  .ergebnis sup{font-size:.7em;}
+  .kontrolle{font-size:.86rem;margin-top:8px;color:var(--grau);}
+  .kontrolle.ok b{color:var(--ok);} .kontrolle.bad b{color:var(--fehler);}
+
+  /* Rechenweg (Treppe) */
+  .weg-titel{display:flex;justify-content:space-between;align-items:center;margin:2px 0 6px;}
+  .weg-titel .lab{color:var(--grau);font-size:.9rem;}
+  pre.weg{margin:0;overflow-x:auto;background:#fff;border:1px solid var(--rand);border-radius:10px;
+    padding:14px 16px;font-family:"Cascadia Mono","Consolas","DejaVu Sans Mono",ui-monospace,monospace;
+    font-size:15px;line-height:1.55;font-variant-numeric:tabular-nums;color:#152238;white-space:pre;}
+  .fehler{color:var(--fehler);font-weight:600;padding:6px 0;}
+
+  /* Eingabe */
+  label.feld{display:block;font-size:.9rem;color:var(--grau);margin:.5rem 0 .25rem;}
+  .eingabe{display:flex;align-items:center;gap:8px;}
+  .eingabe .kl{color:var(--grau);font-size:1.05rem;}
+  input[type=text]{flex:1;font:inherit;font-size:1rem;padding:8px 10px;border:1px solid var(--rand);
+    border-radius:8px;background:#fff;font-variant-numeric:tabular-nums;}
+  input[type=text]:focus-visible{outline:3px solid #9db6e6;outline-offset:1px;border-color:var(--akzent);}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  button{font:inherit;border:1px solid var(--akzent);background:#fff;color:var(--akzent);border-radius:8px;padding:8px 13px;cursor:pointer;}
+  button:hover{background:var(--akzent);color:#fff;}
+  button:focus-visible{outline:3px solid #9db6e6;outline-offset:2px;}
+  button.primar{background:var(--akzent);color:#fff;font-weight:600;}
+  button.primar:hover{background:var(--akzent-dunkel);border-color:var(--akzent-dunkel);}
+  .opt{display:flex;align-items:center;gap:8px;margin-top:11px;font-size:.88rem;color:var(--grau);}
+  .opt input{width:16px;height:16px;}
+  .bsp{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .bsp button{padding:5px 9px;font-size:.82rem;border-color:var(--rand);color:var(--akzent-dunkel);}
+  .bsp .cap{width:100%;color:var(--grau);font-size:.8rem;margin-top:4px;}
+
+  .readout .zeile{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--rand);}
+  .readout .zeile:last-child{border-bottom:none;}
+  .readout .lab{color:var(--grau);font-size:.92rem;}
+  .readout .val{font-variant-numeric:tabular-nums;font-weight:600;font-size:1.02rem;}
+
+  .merk{background:#fff7ec;border:1px solid #e7cfa0;border-radius:8px;padding:9px 11px;margin-top:6px;font-size:.9rem;color:#7a5312;line-height:1.5;}
+  .hinweis{font-size:.82rem;color:var(--grau);margin-top:10px;line-height:1.5;}
+  .hinweis code{background:#eef2fb;padding:1px 5px;border-radius:4px;font-size:.95em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Polynomdivision</h1>
+  <p class="unter">Teile ein Polynom durch ein anderes — mit Quotient, Rest und vollständigem Rechenweg. Exakte Bruchrechnung, keine Rundungsfehler.</p>
+
+  <div class="layout">
+    <!-- LINKS: Ergebnis + Rechenweg -->
+    <div class="figur">
+      <div class="ergebnis" id="ergebnis" aria-live="polite">
+        <div class="frml" id="frml">…</div>
+        <div class="kontrolle" id="kontrolle"></div>
+      </div>
+
+      <div class="weg-titel">
+        <span class="lab">Rechenweg (schriftliche Division)</span>
+      </div>
+      <pre class="weg" id="weg" aria-label="Rechenweg der Polynomdivision">…</pre>
+    </div>
+
+    <!-- RECHTS: Steuerung -->
+    <div class="seite">
+      <div class="panel">
+        <label class="feld" for="dividend">Dividend (Zählerpolynom)</label>
+        <input type="text" id="dividend" value="2x^3 - 3x^2 + 4x - 5" spellcheck="false" autocapitalize="off" autocomplete="off">
+        <label class="feld" for="divisor">Divisor (Nennerpolynom)</label>
+        <div class="eingabe">
+          <span class="kl">:&nbsp;(</span>
+          <input type="text" id="divisor" value="x - 1" spellcheck="false" autocapitalize="off" autocomplete="off">
+          <span class="kl">)</span>
+        </div>
+
+        <div class="btns">
+          <button class="primar" id="rechnen">= berechnen</button>
+          <button id="zufall">Zufallsaufgabe</button>
+        </div>
+        <div class="opt"><input type="checkbox" id="mitRest"><label for="mitRest" style="margin:0">Zufallsaufgabe darf einen Rest haben</label></div>
+        <div class="opt"><input type="checkbox" id="quadDiv"><label for="quadDiv" style="margin:0">Zufalls-Divisor quadratisch</label></div>
+
+        <div class="bsp" id="bsp">
+          <span class="cap">Beispiele zum Antippen:</span>
+        </div>
+      </div>
+
+      <div class="panel readout">
+        <div class="zeile"><span class="lab">Quotient</span><span class="val" id="rQuot" style="color:var(--quot)">–</span></div>
+        <div class="zeile"><span class="lab">Rest</span><span class="val" id="rRest" style="color:var(--rest)">–</span></div>
+        <div class="zeile"><span class="lab">Division geht auf?</span><span class="val" id="rAuf">–</span></div>
+      </div>
+
+      <div class="hinweis">
+        <b>Eingabe:</b> <code>^</code> für Hochzahlen (oder <code>x2</code> für x²), Brüche wie <code>3/4</code>, Dezimalkomma erlaubt.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+
+  /* ---------- Exakte Bruchzahl (BigInt) ---------- */
+  function bgcd(a,b){a=a<0n?-a:a;b=b<0n?-b:b;while(b){const t=a%b;a=b;b=t;}return a;}
+  class Fr{
+    constructor(n,d=1n){ n=BigInt(n); d=BigInt(d); if(d===0n)throw new Error('div0');
+      if(d<0n){n=-n;d=-d;} let g=bgcd(n,d); if(g===0n)g=1n; this.n=n/g; this.d=d/g;
+      this.s=this.n>0n?1:(this.n<0n?-1:0); }
+    static zero(){return new Fr(0n,1n);}
+    isZero(){return this.n===0n;}
+    isOne(){return this.n===1n&&this.d===1n;}
+    abs(){return new Fr(this.n<0n?-this.n:this.n,this.d);}
+    add(o){return new Fr(this.n*o.d+o.n*this.d,this.d*o.d);}
+    sub(o){return new Fr(this.n*o.d-o.n*this.d,this.d*o.d);}
+    mul(o){return new Fr(this.n*o.n,this.d*o.d);}
+    div(o){return new Fr(this.n*o.d,this.d*o.n);}
+    eq(o){return this.n===o.n&&this.d===o.d;}
+    toString(){ return this.d===1n?this.n.toString():(this.n.toString()+'/'+this.d.toString()); }
+  }
+
+  /* ---------- Deutsches Zahlformat ---------- */
+  const fmt=x=>String(x).replace('.',',');            // Dezimalkomma
+  const fmtFr=f=>f.toString().replace('.',',');       // Brüche a/b bleiben a/b
+
+  /* ---------- Eingabe -> Polynom (Map exp->Fr) ---------- */
+  function parseNum(str){
+    str=(str||'').trim().replace(',','.');
+    if(str===''||str==='+')return new Fr(1n);
+    if(str==='-')return new Fr(-1n);
+    if(str.includes('/')){const p=str.split('/');return parseNum(p[0]).div(parseNum(p[1]));}
+    if(str.includes('.')){const p=str.split('.');const i=p[0]||'0';const f=p[1]||'';
+      return new Fr(BigInt(i+f),10n**BigInt(f.length));}
+    return new Fr(BigInt(str));
+  }
+  function parsePoly(input){
+    let s=(input||'').toLowerCase().replace(/\s+/g,'').replace(/[−–—]/g,'-').replace(/[·*]/g,'');
+    if(s==='')throw new Error('Bitte ein Polynom eingeben.');
+    if(/[^0-9x^+\-./,]/.test(s))throw new Error('Nur x, Zahlen, + − · ^ / , sind erlaubt.');
+    if(!/^[+-]/.test(s))s='+'+s;
+    const map=new Map(); const re=/([+-])([^+-]+)/g; let m,matched=false;
+    while((m=re.exec(s))){ matched=true;
+      const sign=m[1]==='-'?-1:1; const t=m[2];
+      let exp,coefStr; const xi=t.indexOf('x');
+      if(xi===-1){exp=0;coefStr=t;}
+      else{ coefStr=t.slice(0,xi); let rest=t.slice(xi+1);
+        if(rest===''){exp=1;} else{ rest=rest.replace('^',''); exp=parseInt(rest,10);
+          if(isNaN(exp)||exp<0)throw new Error('Ungültiger Exponent.'); } }
+      let coef=parseNum(coefStr); if(sign<0)coef=coef.mul(new Fr(-1n));
+      map.set(exp,(map.get(exp)||Fr.zero()).add(coef));
+    }
+    if(!matched)throw new Error('Konnte die Eingabe nicht lesen.');
+    return map;
+  }
+
+  /* ---------- Polynom-Helfer ---------- */
+  function degree(map){let d=-1;for(const [p,c] of map){if(!c.isZero()&&p>d)d=p;}return d;}
+  function polyMul(a,b){const r=new Map();for(const[pa,ca]of a){if(ca.isZero())continue;for(const[pb,cb]of b){if(cb.isZero())continue;const p=pa+pb;r.set(p,(r.get(p)||Fr.zero()).add(ca.mul(cb)));}}return r;}
+  function polyAdd(a,b){const r=new Map(a);for(const[p,c]of b)r.set(p,(r.get(p)||Fr.zero()).add(c));return r;}
+  function polyEq(a,b){const ps=new Set([...a.keys(),...b.keys()]);for(const p of ps){const ca=a.get(p)||Fr.zero();const cb=b.get(p)||Fr.zero();if(!ca.eq(cb))return false;}return true;}
+
+  /* ---------- Division mit Rechenweg ---------- */
+  function computeDivision(divMap,dsorMap){
+    const dDeg=degree(dsorMap);
+    if(dDeg<0)throw new Error('Der Divisor darf nicht 0 sein.');
+    let work=new Map(divMap);
+    const quotient=new Map();
+    const steps=[{map:new Map(work),kind:'div'}];
+    let dw=degree(work); let guard=0;
+    while(dw>=dDeg){
+      if(++guard>400)break;
+      const lead=dw-dDeg;
+      const qc=work.get(dw).div(dsorMap.get(dDeg));
+      quotient.set(lead,qc);
+      const prod=new Map();
+      for(const[dp,dc]of dsorMap){if(dc.isZero())continue;const p=dp+lead;prod.set(p,(prod.get(p)||Fr.zero()).add(qc.mul(dc)));}
+      steps.push({map:prod,kind:'prod'});
+      for(const[p,c]of prod)work.set(p,(work.get(p)||Fr.zero()).sub(c));
+      const nd=degree(work);
+      steps.push({map:new Map(work),kind:'diff'});
+      dw=nd; if(nd<0)break;
+    }
+    return {quotient,remainder:work,steps};
+  }
+
+  /* ---------- Formatierung ---------- */
+  // HTML-Term (schöne Hochzahlen) für Ergebniszeile / Eingabe-Rückschreiben
+  function termHTML(c,p,first){
+    const neg=c.s<0, mag=c.abs();
+    const op=first?(neg?'−':''):(neg?' − ':' + ');
+    const coefPart=(p>0&&mag.isOne())?'':fmtFr(mag);
+    const varPart=p===0?'':('x'+(p>1?'<sup>'+p+'</sup>':''));
+    return op+coefPart+varPart;
+  }
+  function polyHTML(map){
+    const ps=[...map.keys()].filter(p=>!map.get(p).isZero()).sort((a,b)=>b-a);
+    if(!ps.length)return '0';
+    return ps.map((p,i)=>termHTML(map.get(p),p,i===0)).join('');
+  }
+  // Klartext-Term (x^p) fürs Zurückschreiben in die Eingabefelder
+  function polyPlain(map){
+    const ps=[...map.keys()].filter(p=>!map.get(p).isZero()).sort((a,b)=>b-a);
+    if(!ps.length)return '0';
+    return ps.map((p,i)=>{
+      const c=map.get(p),neg=c.s<0,mag=c.abs();
+      const op=i===0?(neg?'-':''):(neg?' - ':' + ');
+      const coefPart=(p>0&&mag.isOne())?'':fmtFr(mag);
+      const varPart=p===0?'':('x'+(p>1?'^'+p:''));
+      return op+coefPart+varPart;
+    }).join('');
+  }
+  // Monospace-Zelle für die Treppe (x^p)
+  function cellText(c,p,first){
+    const neg=c.s<0, mag=c.abs();
+    const op=first?(neg?'-':''):(neg?'- ':'+ ');
+    const coefPart=(p>0&&mag.isOne())?'':fmtFr(mag);
+    const varPart=p===0?'':('x'+(p>1?('^'+p):''));
+    return op+coefPart+varPart;
+  }
+  function renderScheme(steps,maxDeg){
+    let W=6;
+    for(const st of steps)for(const[p,c]of st.map){if(c.isZero())continue;const t=cellText(c,p,false);if(t.length+2>W)W=t.length+2;}
+    const out=[];
+    for(const st of steps){
+      const prod=st.kind==='prod';
+      const gut=prod?'-(':'  ';   // Subtrahiertes wird in Klammern gesetzt: -( … )
+      let fields='',first=true,any=false;
+      for(let p=maxDeg;p>=0;p--){
+        const c=st.map.get(p); let cell='';
+        if(c&&!c.isZero()){cell=cellText(c,p,first);first=false;any=true;}
+        fields+=(p===maxDeg?cell.padEnd(W):cell.padStart(W));
+      }
+      let line=any?(gut+fields):(gut+'0'.padStart((maxDeg+1)*W));
+      line=line.replace(/\s+$/,'');
+      if(prod)line+=')';
+      out.push(line);
+      if(prod){
+        out.push(' '+'─'.repeat(Math.max(1,line.length-1)));
+      }
+    }
+    return out.join('\n');
+  }
+
+  /* ---------- Ausgabe ---------- */
+  function run(){
+    let pm,dm;
+    try{ pm=parsePoly($('dividend').value); }catch(e){ return fail('Dividend: '+e.message); }
+    try{ dm=parsePoly($('divisor').value); }catch(e){ return fail('Divisor: '+e.message); }
+    let res;
+    try{ res=computeDivision(pm,dm); }catch(e){ return fail(e.message); }
+
+    const qH=polyHTML(res.quotient);
+    const rDeg=degree(res.remainder);
+    const hasRest=rDeg>=0;
+    const rH=hasRest?polyHTML(res.remainder):'0';
+    const dH=polyHTML(dm);
+
+    // Ergebnis-Formel:  P : D = Q  [ + (R)/(D) ]
+    let frml='('+polyHTML(pm)+') : ('+dH+') = <span class="q">'+qH+'</span>';
+    if(hasRest){ frml+=' <span class="r">+ ('+rH+') : ('+dH+')</span>'; }
+    $('frml').innerHTML=frml;
+
+    // Kontrolle: D·Q + R = P ?
+    const check=polyAdd(polyMul(dm,res.quotient),res.remainder);
+    const ok=polyEq(check,pm);
+    $('kontrolle').className='kontrolle '+(ok?'ok':'bad');
+    $('kontrolle').innerHTML=ok
+      ? 'Kontrolle: D·Q + R = ('+dH+')·('+qH+')'+(hasRest?' + ('+rH+')':'')+' = P &nbsp; <b>✓</b>'
+      : '<b>Achtung: Kontrolle fehlgeschlagen.</b>';
+
+    // Rechenweg
+    $('weg').textContent=renderScheme(res.steps,degree(pm));
+
+    // Readout
+    $('rQuot').innerHTML=qH;
+    $('rRest').innerHTML=rH;
+    $('rAuf').textContent=hasRest?'nein (Rest ≠ 0)':'ja — Divisor ist Teiler';
+    $('rAuf').style.color=hasRest?'var(--grau)':'var(--ok)';
+  }
+  function fail(msg){
+    $('frml').innerHTML='<span class="fehler">'+msg+'</span>';
+    $('kontrolle').innerHTML=''; $('weg').textContent='';
+    $('rQuot').textContent='–'; $('rRest').textContent='–';
+    $('rAuf').textContent='–'; $('rAuf').style.color='';
+  }
+
+  /* ---------- Zufallsaufgabe ---------- */
+  const rInt=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+  const rNz=(a,b)=>{let v=0;while(v===0)v=rInt(a,b);return v;};
+  function zufall(){
+    const quad=$('quadDiv').checked, mitRest=$('mitRest').checked;
+    const D=new Map();
+    if(quad){ D.set(2,new Fr(1n)); D.set(1,new Fr(BigInt(rInt(-3,3)))); D.set(0,new Fr(BigInt(rNz(-4,4)))); }
+    else{ D.set(1,new Fr(1n)); D.set(0,new Fr(BigInt(rNz(-5,5)))); }
+    const qd=rInt(1,2);
+    const Q=new Map(); Q.set(qd,new Fr(BigInt(rNz(1,4))));
+    for(let p=qd-1;p>=0;p--)Q.set(p,new Fr(BigInt(rInt(-4,4))));
+    let P=polyMul(D,Q);
+    if(mitRest){
+      const rd=degree(D)-1; const R=new Map();
+      for(let p=rd;p>=0;p--)R.set(p,new Fr(BigInt(rInt(-4,4))));
+      if([...R.values()].every(c=>c.isZero()))R.set(0,new Fr(BigInt(rNz(1,4))));
+      P=polyAdd(P,R);
+    }
+    $('dividend').value=polyPlain(P);
+    $('divisor').value=polyPlain(D);
+    run();
+  }
+
+  /* ---------- Beispiele ---------- */
+  const beispiele=[
+    ['x^3 - 1','x - 1'],
+    ['2x^3 - 3x^2 + 4x - 5','x - 1'],
+    ['6x^2 + 11x + 3','3x + 1'],
+    ['x^4 - 16','x^2 - 4'],
+    ['x^2 + 1','x - 2'],
+  ];
+  const bspBox=$('bsp');
+  beispiele.forEach(([P,D])=>{
+    const b=document.createElement('button');
+    b.textContent='('+P.replace(/\^(\d+)/g,(_,e)=>({'2':'²','3':'³','4':'⁴'}[e]||'^'+e))+') : ('+D+')';
+    b.addEventListener('click',()=>{$('dividend').value=P;$('divisor').value=D;run();});
+    bspBox.appendChild(b);
+  });
+
+  /* ---------- Verdrahtung ---------- */
+  $('rechnen').addEventListener('click',run);
+  $('zufall').addEventListener('click',zufall);
+  ['dividend','divisor'].forEach(id=>$(id).addEventListener('keydown',e=>{if(e.key==='Enter')run();}));
+
+  run();
+})();
+</script>
+</body>
+</html>
