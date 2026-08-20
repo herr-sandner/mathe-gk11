@@ -130,25 +130,25 @@
 
 <section class="aufgabe">
   <h2>Aufgabe 2: Polynomdivision (Grad 3)</h2>
-  <p>Gegeben ist die Funktion \(f\) mit \(f(x) = x^3 - 3x^2 - 4x + 12\).</p>
+  <p>Gegeben ist das Polynom \(p(x) = x^3 - 3x^2 - 4x + 12\).</p>
 
   <div class="teil">
-    <p>a)&nbsp; Zeige, dass \(x = 2\) eine Nullstelle von \(f\) ist. <span class="meta">(Nachweis)</span></p>
+    <p>a)&nbsp; Zeige, dass \(x = 2\) eine Lösung der Gleichung \(p(x) = 0\) ist. <span class="meta">(Nachweis)</span></p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Setze \(x = 2\) in \(f\) ein.</p></div>
+      <div class="tipp"><p>Setze \(x = 2\) in \(p\) für ein \(x\) und zeige, dass dann \(0\) herauskommt.</p></div>
     </details>
     <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
-      <div class="loesung"><p>\(f(2) = 8 - 12 - 8 + 12 = 0\) &nbsp;→&nbsp; \(x = 2\) ist Nullstelle.</p></div>
+      <div class="loesung"><p>\(p(2) = 8 - 12 - 8 + 12 = 0\) &nbsp;→&nbsp; \(x = 2\) ist Lösung, also ist \(p(x)\) durch \((x-2)\) teilbar.</p></div>
     </details>
   </div>
 
   <div class="teil">
-    <p>b)&nbsp; Dividiere \(f\) durch \((x-2)\) und bestimme die beiden <em>weiteren</em> Nullstellen von \(f\).</p>
+    <p>b)&nbsp; Dividiere \(p(x)\) durch \((x-2)\) und bestimme die beiden <em>weiteren</em> Lösungen der Gleichung \(p(x) = 0\).</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Der Rest der Division muss \(0\) sein; den übrig bleibenden quadratischen Term löst du wie gewohnt.</p></div>
+      <div class="tipp"><p>Die Division geht ohne Rest auf; die übrig bleibenden quadratischen Gleichung löst du wie gewohnt.</p></div>
     </details>
     <div class="check" data-loesung="3; -2">
-      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Nullstellen">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Lösungen">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
@@ -164,8 +164,8 @@
             -(-6x + 12)
               ────────
                      0</pre>
-        <p>Es bleibt \(x^2 - x - 6\) mit Rest \(0\). Die weiteren Nullstellen aus \(x^2 - x - 6 = 0\), also \((x-3)(x+2)=0\):</p>
-        <p>\(x = 3\) und \(x = -2\). &nbsp;(Alle Nullstellen von \(f\): \(-2,\ 2,\ 3\).)</p>
+        <p>Es bleibt \(x^2 - x - 6\) mit Rest \(0\). Die weiteren Lösungen aus \(x^2 - x - 6 = 0\), also \((x-3)(x+2)=0\):</p>
+        <p>\(x = 3\) und \(x = -2\). &nbsp;(Alle Lösungen von \(p(x)=0\): \(-2,\ 2,\ 3\).)</p>
       </div>
     </div>
   </div>
@@ -173,29 +173,29 @@
 
 <section class="aufgabe">
   <h2>Aufgabe 3: Polynomdivision (Grad 4)</h2>
-  <p>Gegeben ist die Funktion \(f\) mit \(f(x) = x^4 - 6x^3 + 3x^2 + 26x - 24\).
-  Zwei Nullstellen sind bereits bekannt: \(x = 1\) und \(x = -2\).</p>
+  <p>Gegeben ist das Polynom \(p(x) = x^4 - 6x^3 + 3x^2 + 26x - 24\).
+  Es ist durch \((x-1)\) und \((x+2)\) teilbar (\(x = 1\) und \(x = -2\) sind Lösungen von \(x^4 - 6x^3 + 3x^2 + 26x - 24 = 0\)).</p>
 
   <div class="teil">
-    <p>a)&nbsp; Bestätige durch Einsetzen, dass \(x = 1\) und \(x = -2\) Nullstellen von \(f\) sind. <span class="meta">(Nachweis)</span></p>
+    <p>a)&nbsp; Bestätige durch Einsetzen, dass \(x = 1\) und \(x = -2\) Lösungen von \(p(x) = 0\) sind. <span class="meta">(Nachweis)</span></p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Setze \(x = 1\) und danach \(x = -2\) in \(f\) ein.</p></div>
+      <div class="tipp"><p>Setze \(x = 1\) und danach \(x = -2\) in \(p\) ein und zeige, dass tatsächlich \(0\) herauskommt.</p></div>
     </details>
     <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
       <div class="loesung">
-        <p>\(f(1) = 1 - 6 + 3 + 26 - 24 = 0\) ✓</p>
-        <p>\(f(-2) = 16 + 48 + 12 - 52 - 24 = 0\) ✓</p>
+        <p>\(p(1) = 1 - 6 + 3 + 26 - 24 = 0\) ✓</p>
+        <p>\(p(-2) = 16 + 48 + 12 - 52 - 24 = 0\) ✓</p>
       </div>
     </details>
   </div>
 
   <div class="teil">
-    <p>b)&nbsp; Bestimme durch zweifache Polynomdivision (durch \((x-1)\) und \((x+2)\)) die beiden <em>weiteren</em> Nullstellen von \(f\).</p>
+    <p>b)&nbsp; Bestimme durch zweifache Polynomdivision (durch \((x-1)\) und danach das Ergebnis durch \((x+2)\)) die beiden <em>weiteren</em> Lösungen von \(p(x) = 0\).</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Teile \(f\) zuerst durch \((x-1)\), das Ergebnis dann durch \((x+2)\). Übrig bleibt ein quadratischer Term – dessen Nullstellen sind gesucht.</p></div>
+      <div class="tipp"><p>Teile \(p(x)\) zuerst durch \((x-1)\), das Ergebnis dann durch \((x+2)\). Die übrig bleibenden quadratischen Gleichung löst du wie gewohnt.</p></div>
     </details>
     <div class="check" data-loesung="3; 4">
-      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Nullstellen">
+      <input type="text" class="antwort" placeholder="mehrere mit ; trennen" aria-label="Weitere Lösungen">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
@@ -205,14 +205,12 @@
         Zweite Division:
         $$(x^3 - 5x^2 - 2x + 24) : (x+2) = x^2 - 7x + 12$$
         \(x^2 - 7x + 12 = 0 \Rightarrow (x-3)(x-4)=0\):</p>
-        <p>\(x = 3\) und \(x = 4\). &nbsp;(Alle Nullstellen von \(f\): \(-2,\ 1,\ 3,\ 4\).)</p>
+        <p>\(x = 3\) und \(x = 4\). &nbsp;(Alle Lösungen von \(p(x)=0\): \(-2,\ 1,\ 3,\ 4\).)</p>
       </div>
     </div>
   </div>
 </section>
 
-<p>Hinweis: Unter https://www.arndt-bruenner.de/mathe/scripts/polynomdivision.htm kannst du selbst Polynome dividieren und auch den Rechenweg dazu ansehen.<p>
-  
 <p><a href="index.html">← zur Übersicht</a></p>
 
 <script src="schuljahr.js"></script>
@@ -220,4 +218,3 @@
 <script src="kontrolle.js?v=4"></script>
 </body>
 </html>
-
