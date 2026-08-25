@@ -99,3 +99,8 @@ summary:hover{color:var(--akzent)}
 .choice .feedback{display:block;margin:.35rem 0 0}
 .choice .weg-link{margin-top:.4rem}
 @media print{ .opt,.choice .feedback{display:none} }
+
+/* Besuchszähler */
+.zaehler{margin-top:1.8rem;padding-top:.9rem;border-top:1px solid var(--linie);color:var(--grau);font-size:.85rem}
+.zaehler .zaehler-sep{margin:0 .5rem;opacity:.5}
+.zaehler-gesamt{white-space:nowrap}
