@@ -104,3 +104,8 @@ summary:hover{color:var(--akzent)}
 .zaehler{margin-top:1.8rem;padding-top:.9rem;border-top:1px solid var(--linie);color:var(--grau);font-size:.85rem}
 .zaehler .zaehler-sep{margin:0 .5rem;opacity:.5}
 .zaehler-gesamt{white-space:nowrap}
+
+/* Fußzeile mit Rechtslinks */
+.seitenfuss{margin-top:1.4rem;font-size:.8rem;color:var(--grau)}
+.seitenfuss a{color:var(--grau)}
+.seitenfuss a:hover{color:var(--akzent-dunkel)}
