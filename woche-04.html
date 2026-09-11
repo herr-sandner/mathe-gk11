@@ -113,45 +113,29 @@
 </section>
 
 <section class="aufgabe">
-  <h2>Aufgabe 3: Nullstellen berechnen – raten, dividieren, lösen</h2>
-  <p>Bei einer Funktion 3. Grades, die <em>nicht</em> schon als Produkt vorliegt, hilft dieses Vorgehen:</p>
+  <h2>Aufgabe 3: Nullstellen berechnen</h2>
+  <p>Diese Funktionen liegen <em>nicht</em> als Produkt vor. Bestimme jeweils <strong>alle</strong> Nullstellen selbst. Welche Nullstelle du zuerst rätst und wodurch du dividierst, ist dabei dir überlassen – häufig gibt es mehr als einen richtigen Weg.</p>
   <details><summary>So gehst du in drei Schritten vor</summary>
     <div class="tipp">
-      <p><strong>1. Nullstelle raten.</strong> Setze der Reihe nach \(x=1,\ -1,\ 2,\ -2,\ 3,\ \dots\) ein, bis \(f(x)=0\) herauskommt. Kandidaten sind nur die <strong>Teiler des Absolutglieds</strong> (der Zahl ohne \(x\)).</p>
-      <p><strong>2. Polynomdivision.</strong> Teile \(f(x)\) durch \((x-\text{geratene Nullstelle})\). Der Rest muss \(0\) sein; übrig bleibt ein quadratischer Term.</p>
-      <p><strong>3. Quadratische Gleichung lösen.</strong> Setze den quadratischen Term \(=0\) und löse mit der \(pq\)-Formel. Zusammen mit der geratenen Nullstelle hast du <em>alle</em> Nullstellen.</p>
+      <p><strong>1. Nullstelle raten.</strong> Setze der Reihe nach \(x=1,\ -1,\ 2,\ -2,\ 3,\ \dots\) ein, bis \(f(x)=0\) herauskommt. Kandidaten sind nur die <strong>Teiler des Absolutglieds</strong> (der Zahl ganz ohne \(x\)).</p>
+      <p><strong>2. Polynomdivision.</strong> Teile \(f(x)\) durch \((x-\text{deine geratene Nullstelle})\). Der Rest muss \(0\) sein; übrig bleibt ein quadratischer Term.</p>
+      <p><strong>3. Quadratische Gleichung lösen.</strong> Setze den quadratischen Term \(=0\) und löse mit der \(pq\)-Formel.</p>
+      <p class="meta">Findest du gleich mehrere ganzzahlige Nullstellen, kannst du mit jeder davon starten – die verschiedenen Divisionen führen alle zum selben Endergebnis.</p>
     </div>
   </details>
 
-  <!-- ======================= 3a ======================= -->
   <div class="teil">
-    <p><strong>a)</strong>&nbsp; \(f(x)=x^3-2x^2-5x+6\)</p>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 1: Probiere \(x=1,\ -1,\ 2,\ \dots\) durch. Welche ist die <em>erste</em> ganzzahlige Nullstelle, die du findest?</p>
+    <p><strong>a)</strong>&nbsp; Bestimme alle Nullstellen von \(f(x)=x^3-2x^2-5x+6\).</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Die geratene Nullstelle muss ein Teiler von \(6\) sein: \(\pm1,\ \pm2,\ \pm3,\ \pm6\).</p></div>
+      <div class="tipp"><p>Absolutglied \(6\): probiere die Teiler \(\pm1,\ \pm2,\ \pm3,\ \pm6\) durch. Eine gefundene Nullstelle genügt zum Starten – hier gibt es aber sogar mehrere.</p></div>
     </details>
-    <div class="check" data-loesung="1">
-      <input type="text" class="antwort" placeholder="x =" aria-label="Geratene Nullstelle 3a">
+    <div class="check" data-loesung="-2; 1; 3">
+      <input type="text" class="antwort" placeholder="alle Nullstellen, mit ; trennen" aria-label="Alle Nullstellen 3a">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
-        <p>\(f(1)=1-2-5+6=0\) &nbsp;→&nbsp; \(x=1\) ist eine Nullstelle.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 2: Führe \(f(x):(x-1)\) durch. Wie lautet der quadratische Term?</p>
-    <div class="check" data-loesung="x^2-x-6">
-      <input type="text" class="antwort" placeholder="z. B. x^2+... " aria-label="Ergebnis der Division 3a">
-      <button type="button" class="pruefen">Prüfen</button>
-      <span class="feedback"></span>
-      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
-      <div class="weg loesung" style="display:none">
+        <p>Beim Probieren findest du \(f(1)=1-2-5+6=0\). Ebenso sind \(x=3\) und \(x=-2\) Nullstellen – du könntest also genauso mit \((x-3)\) oder \((x+2)\) dividieren. Ein Weg über \((x-1)\):</p>
         <pre style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.45;overflow-x:auto;background:#faf7f4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0">  (x^3 - 2x^2 - 5x + 6) : (x - 1)  =  x^2 - x - 6
  -(x^3 -  x^2)
    ──────────
@@ -162,56 +146,24 @@
             -(- 6x + 6)
               ────────
                      0</pre>
-        <p>Ergebnis: \(x^2-x-6\) mit Rest \(0\).</p>
+        <p>\(x^2-x-6=0\) mit \(p=-1,\ q=-6\): &nbsp;\(x_{1,2}=0{,}5\pm\sqrt{0{,}25+6}=0{,}5\pm 2{,}5\), also \(x=3\) und \(x=-2\).</p>
+        <p>Alle Nullstellen: &nbsp;<strong>\(x=-2,\ 1,\ 3\)</strong> – unabhängig davon, mit welcher Ratung du gestartet bist.</p>
       </div>
     </div>
   </div>
 
   <div class="teil">
-    <p>Schritt 3: Löse \(x^2-x-6=0\) mit der \(pq\)-Formel und gib <em>alle</em> Nullstellen von \(f\) an.</p>
-    <div class="check" data-loesung="-2; 1; 3">
-      <input type="text" class="antwort" placeholder="alle Nullstellen, mit ; trennen" aria-label="Alle Nullstellen 3a">
-      <button type="button" class="pruefen">Prüfen</button>
-      <span class="feedback"></span>
-      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
-      <div class="weg loesung" style="display:none">
-        <p>\(x^2-x-6=0\), also \(p=-1,\ q=-6\):</p>
-        <p>\(x_{1,2}=\dfrac{1}{2}\pm\sqrt{\left(\dfrac{1}{2}\right)^2+6}=0{,}5\pm\sqrt{6{,}25}=0{,}5\pm 2{,}5\).</p>
-        <p>Also \(x=3\) und \(x=-2\). Zusammen mit \(x=1\): &nbsp;<strong>\(x=-2,\ 1,\ 3\)</strong>.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======================= 3b ======================= -->
-  <div class="teil" style="margin-top:1.4rem">
-    <p><strong>b)</strong>&nbsp; \(f(x)=x^3-x^2-8x+12\)</p>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 1: Erste ganzzahlige Nullstelle durch Probieren?</p>
+    <p><strong>b)</strong>&nbsp; Bestimme alle Nullstellen von \(f(x)=x^3-x^2-8x+12\).</p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Teiler von \(12\): \(\pm1,\ \pm2,\ \pm3,\ \pm4,\ \pm6,\ \pm12\). Beachte: \(x=1\) klappt hier <em>nicht</em> – probiere weiter!</p></div>
+      <div class="tipp"><p>Absolutglied \(12\): Teiler \(\pm1,\ \pm2,\ \pm3,\ \pm4,\ \pm6,\ \pm12\). Beachte, dass nicht jeder Teiler eine Nullstelle ist – probiere geduldig.</p></div>
     </details>
-    <div class="check" data-loesung="2">
-      <input type="text" class="antwort" placeholder="x =" aria-label="Geratene Nullstelle 3b">
+    <div class="check" data-loesung="2; -3">
+      <input type="text" class="antwort" placeholder="alle Nullstellen, mit ; trennen" aria-label="Alle Nullstellen 3b">
       <button type="button" class="pruefen">Prüfen</button>
       <span class="feedback"></span>
       <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
       <div class="weg loesung" style="display:none">
-        <p>\(f(1)=1-1-8+12=4\neq0\) → keine Nullstelle.</p>
-        <p>\(f(2)=8-4-16+12=0\) → \(x=2\) ist eine Nullstelle.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 2: Führe \(f(x):(x-2)\) durch. Wie lautet der quadratische Term?</p>
-    <div class="check" data-loesung="x^2+x-6">
-      <input type="text" class="antwort" placeholder="z. B. x^2+... " aria-label="Ergebnis der Division 3b">
-      <button type="button" class="pruefen">Prüfen</button>
-      <span class="feedback"></span>
-      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
-      <div class="weg loesung" style="display:none">
+        <p>\(f(1)=1-1-8+12=4\neq0\), aber \(f(2)=0\) und \(f(-3)=0\). Du kannst also mit \((x-2)\) <em>oder</em> \((x+3)\) dividieren. Ein Weg über \((x-2)\):</p>
         <pre style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.45;overflow-x:auto;background:#faf7f4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0">  (x^3 -  x^2 - 8x + 12) : (x - 2)  =  x^2 + x - 6
  -(x^3 - 2x^2)
    ──────────
@@ -222,59 +174,21 @@
            -(- 6x + 12)
              ─────────
                      0</pre>
-        <p>Ergebnis: \(x^2+x-6\) mit Rest \(0\).</p>
+        <p>\(x^2+x-6=0\) mit \(p=1,\ q=-6\): &nbsp;\(x_{1,2}=-0{,}5\pm 2{,}5\), also \(x=2\) und \(x=-3\).</p>
+        <p>Da \(x=2\) sowohl geraten als auch aus der \(pq\)-Formel kommt, ist es eine <strong>doppelte</strong> Nullstelle. Nullstellen: &nbsp;<strong>\(x=2\) (2-fach) und \(x=-3\)</strong>.</p>
+        <p class="meta">Über \((x+3)\) erhältst du \(x^2-4x+4=(x-2)^2\) und siehst die doppelte Nullstelle direkt.</p>
       </div>
     </div>
   </div>
 
   <div class="teil">
-    <p>Schritt 3: Löse \(x^2+x-6=0\) und gib alle Nullstellen von \(f\) an.</p>
+    <p><strong>c)</strong>&nbsp; Bestimme alle Nullstellen von \(f(x)=x^3-x^2-3x-1\). <span class="meta">(Tipp: Ergebnis nicht ganzzahlig – die \(pq\)-Formel wird gebraucht.)</span></p>
     <details><summary>Tipp</summary>
-      <div class="tipp"><p>Achte darauf, welche Zahl doppelt auftritt – das verrät die Vielfachheit.</p></div>
+      <div class="tipp"><p>Das Absolutglied ist \(-1\); die einzigen ganzzahligen Kandidaten sind \(\pm1\). Hier ist also nur <em>eine</em> Division möglich – die restlichen Nullstellen liefert die \(pq\)-Formel.</p></div>
     </details>
-    <div class="check" data-loesung="2; -3">
-      <input type="text" class="antwort" placeholder="alle Nullstellen, mit ; trennen" aria-label="Alle Nullstellen 3b">
-      <button type="button" class="pruefen">Prüfen</button>
-      <span class="feedback"></span>
-      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
-      <div class="weg loesung" style="display:none">
-        <p>\(x^2+x-6=0\), also \(p=1,\ q=-6\):</p>
-        <p>\(x_{1,2}=-\dfrac{1}{2}\pm\sqrt{\left(\dfrac{1}{2}\right)^2+6}=-0{,}5\pm 2{,}5\).</p>
-        <p>Also \(x=2\) und \(x=-3\). Zusammen mit der geratenen Nullstelle \(x=2\) tritt \(x=2\) <strong>doppelt</strong> auf.</p>
-        <p>Nullstellen: &nbsp;<strong>\(x=2\) (2-fach)</strong> und \(x=-3\).</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======================= 3c ======================= -->
-  <div class="teil" style="margin-top:1.4rem">
-    <p><strong>c)</strong>&nbsp; \(f(x)=x^3-x^2-3x-1\) &nbsp;<span class="meta">(hier wird die \(pq\)-Formel wirklich gebraucht)</span></p>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 1: Erste ganzzahlige Nullstelle?</p>
-    <details><summary>Tipp</summary>
-      <div class="tipp"><p>Das Absolutglied ist \(-1\); die einzigen ganzzahligen Teiler sind \(\pm1\). Viel zu probieren gibt es also nicht.</p></div>
-    </details>
-    <div class="check" data-loesung="-1">
-      <input type="text" class="antwort" placeholder="x =" aria-label="Geratene Nullstelle 3c">
-      <button type="button" class="pruefen">Prüfen</button>
-      <span class="feedback"></span>
-      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
-      <div class="weg loesung" style="display:none">
-        <p>\(f(1)=1-1-3-1=-4\neq0\), aber \(f(-1)=-1-1+3-1=0\) → \(x=-1\) ist eine Nullstelle.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 2: Führe \(f(x):(x+1)\) durch. Wie lautet der quadratische Term?</p>
-    <div class="check" data-loesung="x^2-2x-1">
-      <input type="text" class="antwort" placeholder="z. B. x^2+... " aria-label="Ergebnis der Division 3c">
-      <button type="button" class="pruefen">Prüfen</button>
-      <span class="feedback"></span>
-      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
-      <div class="weg loesung" style="display:none">
+    <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
+      <div class="loesung">
+        <p>\(f(1)=1-1-3-1=-4\neq0\), aber \(f(-1)=-1-1+3-1=0\) → \(x=-1\) ist die einzige ganzzahlige Nullstelle. Division durch \((x+1)\):</p>
         <pre style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.45;overflow-x:auto;background:#faf7f4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0">  (x^3 -  x^2 - 3x - 1) : (x + 1)  =  x^2 - 2x - 1
  -(x^3 +  x^2)
    ──────────
@@ -285,19 +199,8 @@
               -(- x - 1)
                 ───────
                       0</pre>
-        <p>Ergebnis: \(x^2-2x-1\) mit Rest \(0\).</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="teil">
-    <p>Schritt 3: Löse \(x^2-2x-1=0\) mit der \(pq\)-Formel. <span class="meta">(Hier kommen keine „glatten" Zahlen heraus.)</span></p>
-    <details class="loesung-toggle"><summary>Lösung anzeigen</summary>
-      <div class="loesung">
-        <p>\(x^2-2x-1=0\), also \(p=-2,\ q=-1\):</p>
-        <p>\(x_{1,2}=1\pm\sqrt{1+1}=1\pm\sqrt{2}\).</p>
-        <p>Also \(x=1+\sqrt{2}\approx 2{,}41\) und \(x=1-\sqrt{2}\approx -0{,}41\).</p>
-        <p>Alle Nullstellen von \(f\): &nbsp;<strong>\(x=-1,\ \ 1-\sqrt{2},\ \ 1+\sqrt{2}\)</strong>.</p>
+        <p>\(x^2-2x-1=0\) mit \(p=-2,\ q=-1\): &nbsp;\(x_{1,2}=1\pm\sqrt{1+1}=1\pm\sqrt{2}\).</p>
+        <p>Alle Nullstellen: &nbsp;<strong>\(x=-1,\ \ 1-\sqrt{2}\approx-0{,}41,\ \ 1+\sqrt{2}\approx2{,}41\)</strong>.</p>
       </div>
     </details>
   </div>
@@ -311,3 +214,4 @@
 <script src="choice.js?v=1"></script>
 </body>
 </html>
+
