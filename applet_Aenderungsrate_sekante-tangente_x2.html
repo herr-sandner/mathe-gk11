@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q wandert auf P zu</title>
+<style>
+  :root{
+    --akzent:#2E5AAC; --akzent-dunkel:#1c3a72;
+    --grau:#666; --bg:#ffffff; --panel:#f2f5fb; --rand:#cdd8ee;
+    --graph:#D2323C;      /* Funktionsgraph: rot */
+    --sekante:#2856BE;    /* Sekante: blau */
+    --tangente:#7B1FA2;   /* Tangente: violett */
+    --dx:#2F7D32;         /* Delta x: gruen */
+    --dy:#C77F1A;         /* Delta y: orange */
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;color:#1b1b1b;background:var(--bg);}
+  .wrap{max-width:1000px;margin:0 auto;padding:16px;}
+  h1{font-size:1.25rem;color:var(--akzent-dunkel);margin:.2rem 0 1rem;}
+  .layout{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;}
+  .figur{flex:1 1 320px;min-width:260px;max-width:460px;}
+  .seite{flex:1 1 300px;min-width:260px;}
+  svg{width:100%;height:auto;touch-action:none;user-select:none;}
+  #fig{display:block;max-height:calc(100vh - 110px);min-height:360px;}
+  text{font-family:inherit;}
+  .panel{background:var(--panel);border:1px solid var(--rand);border-radius:10px;padding:14px 16px;margin-bottom:14px;}
+  .readout .zeile{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--rand);gap:10px;}
+  .readout .zeile:last-child{border-bottom:none;}
+  .readout .lab{color:var(--grau);font-size:.95rem;}
+  .readout .val{font-variant-numeric:tabular-nums;font-weight:600;font-size:1.1rem;}
+  .gross .val{font-size:1.4rem;color:var(--sekante);}
+  .readout.aus .val{color:transparent !important;text-shadow:none;}
+  .readout.aus .val::after{content:"?";color:#aab3c5;}
+  .readout.aus .val{position:relative;}
+  .readout.aus .val::after{position:absolute;right:0;}
+  .controls label{display:block;font-size:.9rem;color:var(--grau);margin:.2rem 0 .3rem;}
+  input[type=range]{width:100%;accent-color:var(--akzent);}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  button{font:inherit;border:1px solid var(--akzent);background:#fff;color:var(--akzent);border-radius:8px;padding:7px 12px;cursor:pointer;min-height:38px;}
+  button:hover{background:var(--akzent);color:#fff;}
+  button:focus-visible{outline:3px solid #9db6e6;outline-offset:2px;}
+  button.aktiv{background:var(--akzent);color:#fff;}
+  button.klein{padding:5px 11px;font-size:.95rem;min-width:46px;}
+  .opt{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:.92rem;color:#333;}
+  .opt input{width:18px;height:18px;}
+  .hinweis{font-size:.82rem;color:var(--grau);margin-top:10px;line-height:1.45;}
+  .trenner{border-top:1px solid var(--rand);margin:12px 0 8px;}
+  .mini{font-size:.85rem;color:var(--grau);margin:0 0 2px;}
+  .reihe{display:flex;gap:14px;flex-wrap:wrap;}
+  .reihe > div{flex:1 1 120px;}
+  #warn{display:none;margin-top:10px;background:#fdecee;border:1px solid #efb5bb;color:#8a1c26;border-radius:8px;padding:8px 10px;font-size:.92rem;}
+  @media (prefers-reduced-motion: reduce){ #play{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Q wandert auf P zu &ndash; <i>f</i>(<i>x</i>) = <i>x</i>², feste Stelle <i>x</i><sub>0</sub> = 1</h1>
+  <div class="layout">
+    <div class="figur">
+      <svg id="fig" viewBox="0 0 330 560" aria-label="Normalparabel mit festem Punkt P bei x null gleich eins und beweglichem Punkt Q; die Gerade durch P und Q wird angezeigt">
+        <defs><clipPath id="clip"><rect x="0" y="0" width="330" height="560"/></clipPath></defs>
+        <g id="gitterFein" stroke="#eef1f7" stroke-width="1"></g>
+        <g id="gitter" stroke="#dfe4ee" stroke-width="1"></g>
+        <line id="axX" stroke="#9aa4b8" stroke-width="1.4"/>
+        <line id="axY" stroke="#9aa4b8" stroke-width="1.4"/>
+        <g id="ticks" stroke="#9aa4b8" stroke-width="1.2"></g>
+        <g id="ticklabels" font-size="13" fill="#6b7386"></g>
+        <text id="labX" font-size="15" font-style="italic" fill="#525a6b">x</text>
+        <text id="labY" font-size="15" font-style="italic" fill="#525a6b">y</text>
+
+        <g clip-path="url(#clip)">
+          <path id="parabel" fill="none" stroke="var(--graph)" stroke-width="2.8"/>
+          <line id="tangente" stroke="var(--tangente)" stroke-width="2.4" stroke-dasharray="8 5"/>
+          <line id="sekante" stroke="var(--sekante)" stroke-width="2.6"/>
+          <line id="dreieckX" stroke="var(--dx)" stroke-width="3.2"/>
+          <line id="dreieckY" stroke="var(--dy)" stroke-width="3.2"/>
+        </g>
+
+        <text id="labDx" font-size="14" font-weight="600" fill="var(--dx)"></text>
+        <text id="labDy" font-size="14" font-weight="600" fill="var(--dy)"></text>
+
+        <line id="lotP" stroke="#9aa4b8" stroke-width="1" stroke-dasharray="3 3"/>
+        <line id="lotQ" stroke="#9aa4b8" stroke-width="1" stroke-dasharray="3 3"/>
+        <circle id="P" r="6" fill="#1b1b1b"/>
+        <circle id="Q" r="6" fill="var(--sekante)"/>
+        <circle id="Qring" r="10" fill="none" stroke="var(--sekante)" stroke-width="2" stroke-dasharray="3 3"/>
+        <text id="labP" font-size="14" font-weight="600" fill="#1b1b1b"></text>
+        <text id="labQ" font-size="14" font-weight="600" fill="var(--sekante)"></text>
+        <text id="labX0" font-size="14" font-weight="600" fill="#1b1b1b"></text>
+        <text id="labXq" font-size="14" font-weight="600" fill="var(--sekante)"></text>
+      </svg>
+      <p class="hinweis" style="margin-top:2px">Beide Achsen haben dieselbe Einheit &ndash; Steigungen sind also unverzerrt.</p>
+    </div>
+
+    <div class="seite">
+      <div class="panel readout aus" id="readout">
+        <div class="zeile"><span class="lab">Punkt <i>Q</i></span><span class="val" id="rQ" style="color:var(--sekante)">(2 | 4)</span></div>
+        <div class="zeile"><span class="lab">Δ<i>x</i> = <i>x</i> &minus; 1</span><span class="val" id="rDx" style="color:var(--dx)">1</span></div>
+        <div class="zeile"><span class="lab">Δ<i>y</i> = <i>f</i>(<i>x</i>) &minus; <i>f</i>(1)</span><span class="val" id="rDy" style="color:var(--dy)">3</span></div>
+        <div class="zeile gross"><span class="lab">Steigung der Geraden PQ &nbsp;Δ<i>y</i> : Δ<i>x</i></span><span class="val" id="rM">3</span></div>
+      </div>
+
+      <div class="panel controls">
+        <label for="xS">Punkt <i>Q</i> ziehen oder schieben: <i>x</i> = <b id="xLab">2</b></label>
+        <input id="xS" type="range" min="1" max="2" step="0.001" value="2" aria-label="x-Wert des Punktes Q">
+        <div class="btns">
+          <button id="play">▶ Q wandert zu P</button>
+          <button id="reset">zurück</button>
+        </div>
+
+        <div class="trenner"></div>
+        <p class="mini">Werte für Q:</p>
+        <div class="btns" id="rastR" style="margin-top:4px">
+          <button class="klein" data-x="2">2</button>
+          <button class="klein" data-x="1.2">1,2</button>
+          <button class="klein" data-x="1.01">1,01</button>
+          <button class="klein" data-x="1.001">1,001</button>
+        </div>
+
+        <div class="trenner"></div>
+        <div class="opt"><input type="checkbox" id="cbZahl"><label for="cbZahl" style="margin:0">Zahlen anzeigen</label></div>
+        <div class="opt"><input type="checkbox" id="cbDre" checked><label for="cbDre" style="margin:0">Steigungsdreieck anzeigen</label></div>
+        <div class="opt"><input type="checkbox" id="cbTan"><label for="cbTan" style="margin:0">Tangente in P einblenden</label></div>
+
+        <div class="trenner"></div>
+        <div class="btns" style="margin-top:4px"><button id="qp">Q genau auf P setzen?</button></div>
+        <div id="warn">Q = P: Es gibt nur <b>einen</b> Punkt &ndash; keine Gerade PQ.<br>Δ<i>x</i> = 0 und Δ<i>y</i> = 0, also 0 : 0 &ndash; nicht berechenbar.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const fig=document.getElementById('fig');
+  const $=id=>document.getElementById(id);
+  const NS='http://www.w3.org/2000/svg';
+
+  // ---- Koordinaten: gleiche Einheit auf beiden Achsen ----
+  const W=330, H=560, U=110, OX=62, OY=516;
+  const XMIN=-OX/U, XMAX=(W-OX)/U, YMIN=-(H-OY)/U, YMAX=OY/U;
+  const PX=x=>OX+x*U, PY=y=>OY-y*U;
+  const QMIN=1, QMAX=2;
+
+  const f=x=>x*x;
+  const x0=1, y0=f(x0), mT=2*x0;      // Tangentensteigung in P
+  let xq=2, playing=false, raf=null, aufP=false;
+
+  // Dezimalkomma, nachlaufende Nullen weg
+  function fmt(v,n=4){
+    if(Math.abs(v)<1e-9) v=0;
+    let s=v.toFixed(n).replace(/(\.\d*?)0+$/,'$1').replace(/\.$/,'');
+    return s.replace('.',',').replace('-','−');
+  }
+
+  function el(name,attrs){const e=document.createElementNS(NS,name);for(const k in attrs)e.setAttribute(k,attrs[k]);return e;}
+  function setLine(id,x1,y1,x2,y2,show=true){const e=$(id);e.style.display=show?'':'none';
+    e.setAttribute('x1',x1);e.setAttribute('y1',y1);e.setAttribute('x2',x2);e.setAttribute('y2',y2);}
+  function setTxt(id,x,y,t,show=true){const e=$(id);e.style.display=show?'':'none';
+    e.setAttribute('x',x);e.setAttribute('y',y);e.textContent=t;}
+
+  // ---- Achsen, Gitter, Parabel ----
+  (function bau(){
+    const gf=$('gitterFein'), g=$('gitter'), t=$('ticks'), tl=$('ticklabels');
+    for(let x=-0.5;x<=XMAX;x+=0.5){ (Number.isInteger(x)?g:gf).appendChild(el('line',{x1:PX(x),y1:PY(YMIN),x2:PX(x),y2:PY(YMAX)})); }
+    for(let y=0;y<=YMAX;y+=0.5){ (Number.isInteger(y)?g:gf).appendChild(el('line',{x1:PX(XMIN),y1:PY(y),x2:PX(XMAX),y2:PY(y)})); }
+    for(let i=1;i<=2;i++){
+      t.appendChild(el('line',{x1:PX(i),y1:PY(0)-4,x2:PX(i),y2:PY(0)+4}));
+      const n=el('text',{x:PX(i),y:PY(0)+17,'text-anchor':'middle'}); n.textContent=i; tl.appendChild(n);
+    }
+    for(let j=1;j<=4;j++){
+      t.appendChild(el('line',{x1:PX(0)-4,y1:PY(j),x2:PX(0)+4,y2:PY(j)}));
+      const n=el('text',{x:PX(0)-9,y:PY(j)+5,'text-anchor':'end'}); n.textContent=j; tl.appendChild(n);
+    }
+    const n0=el('text',{x:PX(0)-9,y:PY(0)+17,'text-anchor':'end'}); n0.textContent='0'; tl.appendChild(n0);
+    setLine('axX',PX(XMIN),PY(0),PX(XMAX),PY(0));
+    setLine('axY',PX(0),PY(YMIN),PX(0),PY(YMAX));
+    setTxt('labX',PX(XMAX)-4,PY(0)-8,'x'); $('labX').setAttribute('text-anchor','end');
+    setTxt('labY',PX(0)+8,PY(YMAX)+14,'y');
+    let d='';
+    for(let x=XMIN;x<=XMAX+0.001;x+=0.01){ const y=f(x); if(y>YMAX+0.2) continue;
+      d+=(d?' L ':'M ')+PX(x).toFixed(2)+' '+PY(y).toFixed(2); }
+    $('parabel').setAttribute('d',d);
+  })();
+
+  function gerade(id,a,b,m,show){
+    setLine(id,PX(XMIN),PY(b+m*(XMIN-a)),PX(XMAX),PY(b+m*(XMAX-a)),show);
+  }
+
+  function update(){
+    const zahlen=$('cbZahl').checked;
+    $('readout').classList.toggle('aus',!zahlen);
+    $('warn').style.display = aufP ? 'block' : 'none';
+
+    const yq=f(xq), dx=xq-x0, dy=yq-y0;
+    const m = aufP ? NaN : dy/dx;
+
+    gerade('sekante',x0,y0,m,!aufP);
+    gerade('tangente',x0,y0,mT,$('cbTan').checked);
+
+    const zeig=$('cbDre').checked && !aufP && Math.abs(dx)>0.03;
+    setLine('dreieckX',PX(x0),PY(y0),PX(xq),PY(y0),zeig);
+    setLine('dreieckY',PX(xq),PY(y0),PX(xq),PY(yq),zeig);
+    const lab = zeig && zahlen;
+    // Beschriftung Delta x: unterhalb (rechts) bzw. oberhalb (links) der Kathete
+    setTxt('labDx',PX((x0+xq)/2),PY(y0)+(dy>0?18:-9),'Δx = '+fmt(dx),lab && Math.abs(dx)>0.25);
+    $('labDx').setAttribute('text-anchor','middle');
+    const rechts = dx>0;
+    setTxt('labDy',PX(xq)+(rechts?8:-8),PY((y0+yq)/2)+5,'Δy = '+fmt(dy,6),lab && Math.abs(dy)>0.3);
+    $('labDy').setAttribute('text-anchor',rechts?'start':'end');
+
+    setLine('lotP',PX(x0),PY(0),PX(x0),PY(y0));
+    setLine('lotQ',PX(xq),PY(0),PX(xq),PY(yq),!aufP && Math.abs(dx)>0.03);
+    $('P').setAttribute('cx',PX(x0)); $('P').setAttribute('cy',PY(y0));
+    $('Q').setAttribute('cx',PX(xq)); $('Q').setAttribute('cy',PY(yq));
+    $('Q').style.display = aufP?'none':'';
+    $('Qring').setAttribute('cx',PX(x0)); $('Qring').setAttribute('cy',PY(y0));
+    $('Qring').style.display = aufP?'':'none';
+    setTxt('labP',PX(x0)-11,PY(y0)-9,'P'); $('labP').setAttribute('text-anchor','end');
+    setTxt('labQ',PX(xq)+(dx>=0?10:-10),PY(yq)-10,aufP?'':'Q',!aufP);
+    $('labQ').setAttribute('text-anchor',dx>=0?'start':'end');
+    setTxt('labX0',PX(x0),PY(0)+34,'x₀'); $('labX0').setAttribute('text-anchor','middle');
+    setTxt('labXq',PX(xq),PY(0)+34,'x',!aufP && Math.abs(dx)>0.15); $('labXq').setAttribute('text-anchor','middle');
+
+    $('rQ').textContent = aufP ? '= P' : '('+fmt(xq)+' | '+fmt(yq,6)+')';
+    $('rDx').textContent = fmt(aufP?0:dx);
+    $('rDy').textContent = fmt(aufP?0:dy,6);
+    $('rM').textContent  = aufP ? '0 : 0 ?' : fmt(m);
+
+    $('xS').value=xq; $('xLab').textContent=fmt(xq);
+  }
+
+  function setX(v){
+    aufP=false;
+    v=Math.max(QMIN,Math.min(QMAX,v));
+    // Q darf beim Ziehen nie genau auf P landen (nur ueber den eigenen Knopf)
+    if(v-x0<0.001) v = x0 + 0.001;
+    xq=v; update();
+  }
+
+  // ---- Ziehen in der Figur ----
+  let drag=false;
+  function xAus(e){ const pt=fig.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    const q=pt.matrixTransform(fig.getScreenCTM().inverse()); return (q.x-OX)/U; }
+  fig.addEventListener('pointerdown',e=>{drag=true;fig.setPointerCapture(e.pointerId);stop();setX(xAus(e));});
+  fig.addEventListener('pointermove',e=>{ if(drag) setX(xAus(e)); });
+  fig.addEventListener('pointerup',()=>drag=false);
+  fig.addEventListener('pointercancel',()=>drag=false);
+
+  // ---- Bedienelemente ----
+  $('xS').addEventListener('input',()=>{stop();setX(+$('xS').value);});
+  ['cbZahl','cbDre','cbTan'].forEach(id=>$(id).addEventListener('change',update));
+  ['rastR'].forEach(id=>$(id).addEventListener('click',e=>{const b=e.target.closest('button'); if(!b)return; stop(); setX(+b.dataset.x);}));
+  $('reset').addEventListener('click',()=>{stop(); $('cbTan').checked=false; setX(2);});
+  $('qp').addEventListener('click',()=>{stop(); aufP=true; xq=x0; update();});
+
+  // Animation: Q naehert sich P, erreicht P aber nie (stoppt bei Δx = 0,001)
+  const playBtn=$('play');
+  function stop(){playing=false;playBtn.classList.remove('aktiv');playBtn.textContent='▶ Q wandert zu P';if(raf)cancelAnimationFrame(raf);}
+  function loop(){
+    if(!playing)return;
+    const d=xq-x0;
+    if(d<=0.0011){ setX(x0+0.001); stop(); return; }
+    setX(x0+d*0.955);
+    raf=requestAnimationFrame(()=>setTimeout(loop,28));
+  }
+  playBtn.addEventListener('click',()=>{
+    if(playing){stop();return;}
+    if(aufP || xq-x0<0.01) setX(2);
+    playing=true; playBtn.classList.add('aktiv'); playBtn.textContent='⏸ Stopp'; loop();
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
