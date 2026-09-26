@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="schutz.js?v=4"></script>
+<title>Woche 5 – Kontrollaufgaben Mathe GK 11</title>
+<link rel="stylesheet" href="style.css?v=6">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<header>
+  <h1>Woche 5</h1>
+  <div class="meta">Ausgabe: <span data-datum></span> · Mittlere und lokale Änderungsrate</div>
+</header>
+
+<section class="aufgabe">
+  <h2>Aufgabe 1: Mittlere Änderungsrate</h2>
+  <p>Der Graph zeigt die Temperatur \(T\) in einem Gewächshaus an einem Frühlingstag, \(t\) Stunden nach 8 Uhr. <span class="meta">(Achtung: Die \(T\)-Achse beginnt bei \(14\).)</span></p>
+  <svg viewBox="0 0 340 250" role="img" aria-label="Graph der Temperatur T in Abhängigkeit von der Zeit t" style="width:100%;max-width:420px;height:auto;display:block;margin:.6rem 0;font-family:system-ui,sans-serif"><line x1="42.0" y1="216.0" x2="42.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="77.5" y1="216.0" x2="77.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="113.0" y1="216.0" x2="113.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="148.5" y1="216.0" x2="148.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="184.0" y1="216.0" x2="184.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="219.5" y1="216.0" x2="219.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="255.0" y1="216.0" x2="255.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="290.5" y1="216.0" x2="290.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="326.0" y1="216.0" x2="326.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="42.0" y1="216.0" x2="326.0" y2="216.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="199.0" x2="326.0" y2="199.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="182.0" x2="326.0" y2="182.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="165.0" x2="326.0" y2="165.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="148.0" x2="326.0" y2="148.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="131.0" x2="326.0" y2="131.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="114.0" x2="326.0" y2="114.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="97.0" x2="326.0" y2="97.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="80.0" x2="326.0" y2="80.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="63.0" x2="326.0" y2="63.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="46.0" x2="326.0" y2="46.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="29.0" x2="326.0" y2="29.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="12.0" x2="326.0" y2="12.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="216.0" x2="332.0" y2="216.0" stroke="#6b625a" stroke-width="1.3"/><line x1="42.0" y1="216.0" x2="42.0" y2="6.0" stroke="#6b625a" stroke-width="1.3"/><text x="42.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">0</text><text x="77.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">1</text><text x="113.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">2</text><text x="148.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">3</text><text x="184.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">4</text><text x="219.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">5</text><text x="255.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">6</text><text x="290.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">7</text><text x="326.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">8</text><text x="36.0" y="220.0" font-size="11" text-anchor="end" fill="#6b625a">14</text><text x="36.0" y="186.0" font-size="11" text-anchor="end" fill="#6b625a">16</text><text x="36.0" y="152.0" font-size="11" text-anchor="end" fill="#6b625a">18</text><text x="36.0" y="118.0" font-size="11" text-anchor="end" fill="#6b625a">20</text><text x="36.0" y="84.0" font-size="11" text-anchor="end" fill="#6b625a">22</text><text x="36.0" y="50.0" font-size="11" text-anchor="end" fill="#6b625a">24</text><text x="36.0" y="16.0" font-size="11" text-anchor="end" fill="#6b625a">26</text><text x="330.0" y="244.0" font-size="11" text-anchor="end" fill="#6b625a">t in h</text><text x="47.0" y="14.0" font-size="11" fill="#6b625a">T in °C</text><path d="M42.0 182.0 L43.8 178.6 L45.5 175.3 L47.3 172.0 L49.1 168.7 L50.9 165.5 L52.6 162.4 L54.4 159.2 L56.2 156.2 L58.0 153.1 L59.8 150.1 L61.5 147.2 L63.3 144.3 L65.1 141.4 L66.8 138.6 L68.6 135.8 L70.4 133.0 L72.2 130.3 L74.0 127.7 L75.7 125.1 L77.5 122.5 L79.3 120.0 L81.1 117.5 L82.8 115.0 L84.6 112.6 L86.4 110.3 L88.2 108.0 L89.9 105.7 L91.7 103.5 L93.5 101.3 L95.2 99.1 L97.0 97.0 L98.8 95.0 L100.6 92.9 L102.3 91.0 L104.1 89.0 L105.9 87.1 L107.7 85.3 L109.5 83.5 L111.2 81.7 L113.0 80.0 L114.8 78.3 L116.5 76.7 L118.3 75.1 L120.1 73.5 L121.9 72.0 L123.6 70.6 L125.4 69.1 L127.2 67.8 L129.0 66.4 L130.8 65.1 L132.5 63.9 L134.3 62.7 L136.1 61.5 L137.9 60.4 L139.6 59.3 L141.4 58.2 L143.2 57.2 L144.9 56.3 L146.7 55.4 L148.5 54.5 L150.3 53.7 L152.1 52.9 L153.8 52.1 L155.6 51.4 L157.4 50.8 L159.1 50.2 L160.9 49.6 L162.7 49.1 L164.5 48.6 L166.2 48.1 L168.0 47.7 L169.8 47.4 L171.6 47.0 L173.3 46.8 L175.1 46.5 L176.9 46.3 L178.7 46.2 L180.4 46.1 L182.2 46.0 L184.0 46.0 L185.8 46.0 L187.5 46.1 L189.3 46.2 L191.1 46.3 L192.9 46.5 L194.7 46.8 L196.4 47.0 L198.2 47.4 L200.0 47.7 L201.8 48.1 L203.5 48.6 L205.3 49.1 L207.1 49.6 L208.8 50.2 L210.6 50.8 L212.4 51.4 L214.2 52.1 L216.0 52.9 L217.7 53.7 L219.5 54.5 L221.3 55.4 L223.0 56.3 L224.8 57.2 L226.6 58.2 L228.4 59.3 L230.2 60.4 L231.9 61.5 L233.7 62.7 L235.5 63.9 L237.2 65.1 L239.0 66.4 L240.8 67.8 L242.6 69.1 L244.3 70.6 L246.1 72.0 L247.9 73.5 L249.7 75.1 L251.5 76.7 L253.2 78.3 L255.0 80.0 L256.8 81.7 L258.5 83.5 L260.3 85.3 L262.1 87.1 L263.9 89.0 L265.6 91.0 L267.4 92.9 L269.2 95.0 L271.0 97.0 L272.8 99.1 L274.5 101.3 L276.3 103.5 L278.1 105.7 L279.9 108.0 L281.6 110.3 L283.4 112.6 L285.2 115.0 L287.0 117.5 L288.7 120.0 L290.5 122.5 L292.3 125.1 L294.0 127.7 L295.8 130.3 L297.6 133.0 L299.4 135.8 L301.1 138.6 L302.9 141.4 L304.7 144.3 L306.5 147.2 L308.2 150.1 L310.0 153.1 L311.8 156.2 L313.6 159.2 L315.4 162.4 L317.1 165.5 L318.9 168.7 L320.7 172.0 L322.4 175.3 L324.2 178.6 L326.0 182.0" fill="none" stroke="#c2703a" stroke-width="2.4"/></svg>
+
+  <div class="teil">
+    <p>a)&nbsp; <strong>Zeichnerisch:</strong> Bestimme mit dem Graphen die mittlere Änderungsrate der Temperatur zwischen 8 Uhr und 12 Uhr, also im Intervall \([0;\,4]\). <span class="meta">(in °C pro Stunde)</span></p>
+    <details><summary>Tipp</summary>
+      <div class="tipp">
+        <p>Zeichne die Sekante durch die Punkte bei \(t=0\) und \(t=4\) und lies ein Steigungsdreieck ab.</p>
+        <p>Mittlere Änderungsrate \(=\dfrac{\Delta T}{\Delta t}=\dfrac{T(4)-T(0)}{4-0}\)</p>
+      </div>
+    </details>
+    <div class="check" data-loesung="2">
+      <input type="text" class="antwort" placeholder="°C pro Stunde" aria-label="mittlere Änderungsrate von 0 bis 4">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <svg viewBox="0 0 340 250" role="img" aria-label="Graph mit Sekante von t gleich 0 bis t gleich 4" style="width:100%;max-width:420px;height:auto;display:block;margin:.6rem 0;font-family:system-ui,sans-serif"><line x1="42.0" y1="216.0" x2="42.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="77.5" y1="216.0" x2="77.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="113.0" y1="216.0" x2="113.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="148.5" y1="216.0" x2="148.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="184.0" y1="216.0" x2="184.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="219.5" y1="216.0" x2="219.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="255.0" y1="216.0" x2="255.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="290.5" y1="216.0" x2="290.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="326.0" y1="216.0" x2="326.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="42.0" y1="216.0" x2="326.0" y2="216.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="199.0" x2="326.0" y2="199.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="182.0" x2="326.0" y2="182.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="165.0" x2="326.0" y2="165.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="148.0" x2="326.0" y2="148.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="131.0" x2="326.0" y2="131.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="114.0" x2="326.0" y2="114.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="97.0" x2="326.0" y2="97.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="80.0" x2="326.0" y2="80.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="63.0" x2="326.0" y2="63.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="46.0" x2="326.0" y2="46.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="29.0" x2="326.0" y2="29.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="12.0" x2="326.0" y2="12.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="216.0" x2="332.0" y2="216.0" stroke="#6b625a" stroke-width="1.3"/><line x1="42.0" y1="216.0" x2="42.0" y2="6.0" stroke="#6b625a" stroke-width="1.3"/><text x="42.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">0</text><text x="77.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">1</text><text x="113.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">2</text><text x="148.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">3</text><text x="184.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">4</text><text x="219.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">5</text><text x="255.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">6</text><text x="290.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">7</text><text x="326.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">8</text><text x="36.0" y="220.0" font-size="11" text-anchor="end" fill="#6b625a">14</text><text x="36.0" y="186.0" font-size="11" text-anchor="end" fill="#6b625a">16</text><text x="36.0" y="152.0" font-size="11" text-anchor="end" fill="#6b625a">18</text><text x="36.0" y="118.0" font-size="11" text-anchor="end" fill="#6b625a">20</text><text x="36.0" y="84.0" font-size="11" text-anchor="end" fill="#6b625a">22</text><text x="36.0" y="50.0" font-size="11" text-anchor="end" fill="#6b625a">24</text><text x="36.0" y="16.0" font-size="11" text-anchor="end" fill="#6b625a">26</text><text x="330.0" y="244.0" font-size="11" text-anchor="end" fill="#6b625a">t in h</text><text x="47.0" y="14.0" font-size="11" fill="#6b625a">T in °C</text><path d="M42.0 182.0 L43.8 178.6 L45.5 175.3 L47.3 172.0 L49.1 168.7 L50.9 165.5 L52.6 162.4 L54.4 159.2 L56.2 156.2 L58.0 153.1 L59.8 150.1 L61.5 147.2 L63.3 144.3 L65.1 141.4 L66.8 138.6 L68.6 135.8 L70.4 133.0 L72.2 130.3 L74.0 127.7 L75.7 125.1 L77.5 122.5 L79.3 120.0 L81.1 117.5 L82.8 115.0 L84.6 112.6 L86.4 110.3 L88.2 108.0 L89.9 105.7 L91.7 103.5 L93.5 101.3 L95.2 99.1 L97.0 97.0 L98.8 95.0 L100.6 92.9 L102.3 91.0 L104.1 89.0 L105.9 87.1 L107.7 85.3 L109.5 83.5 L111.2 81.7 L113.0 80.0 L114.8 78.3 L116.5 76.7 L118.3 75.1 L120.1 73.5 L121.9 72.0 L123.6 70.6 L125.4 69.1 L127.2 67.8 L129.0 66.4 L130.8 65.1 L132.5 63.9 L134.3 62.7 L136.1 61.5 L137.9 60.4 L139.6 59.3 L141.4 58.2 L143.2 57.2 L144.9 56.3 L146.7 55.4 L148.5 54.5 L150.3 53.7 L152.1 52.9 L153.8 52.1 L155.6 51.4 L157.4 50.8 L159.1 50.2 L160.9 49.6 L162.7 49.1 L164.5 48.6 L166.2 48.1 L168.0 47.7 L169.8 47.4 L171.6 47.0 L173.3 46.8 L175.1 46.5 L176.9 46.3 L178.7 46.2 L180.4 46.1 L182.2 46.0 L184.0 46.0 L185.8 46.0 L187.5 46.1 L189.3 46.2 L191.1 46.3 L192.9 46.5 L194.7 46.8 L196.4 47.0 L198.2 47.4 L200.0 47.7 L201.8 48.1 L203.5 48.6 L205.3 49.1 L207.1 49.6 L208.8 50.2 L210.6 50.8 L212.4 51.4 L214.2 52.1 L216.0 52.9 L217.7 53.7 L219.5 54.5 L221.3 55.4 L223.0 56.3 L224.8 57.2 L226.6 58.2 L228.4 59.3 L230.2 60.4 L231.9 61.5 L233.7 62.7 L235.5 63.9 L237.2 65.1 L239.0 66.4 L240.8 67.8 L242.6 69.1 L244.3 70.6 L246.1 72.0 L247.9 73.5 L249.7 75.1 L251.5 76.7 L253.2 78.3 L255.0 80.0 L256.8 81.7 L258.5 83.5 L260.3 85.3 L262.1 87.1 L263.9 89.0 L265.6 91.0 L267.4 92.9 L269.2 95.0 L271.0 97.0 L272.8 99.1 L274.5 101.3 L276.3 103.5 L278.1 105.7 L279.9 108.0 L281.6 110.3 L283.4 112.6 L285.2 115.0 L287.0 117.5 L288.7 120.0 L290.5 122.5 L292.3 125.1 L294.0 127.7 L295.8 130.3 L297.6 133.0 L299.4 135.8 L301.1 138.6 L302.9 141.4 L304.7 144.3 L306.5 147.2 L308.2 150.1 L310.0 153.1 L311.8 156.2 L313.6 159.2 L315.4 162.4 L317.1 165.5 L318.9 168.7 L320.7 172.0 L322.4 175.3 L324.2 178.6 L326.0 182.0" fill="none" stroke="#c2703a" stroke-width="2.4"/><line x1="42.0" y1="182.0" x2="184.0" y2="46.0" stroke="#2856BE" stroke-width="2"/><line x1="42.0" y1="182.0" x2="184.0" y2="182.0" stroke="#2F7D32" stroke-width="2.4"/><line x1="184.0" y1="182.0" x2="184.0" y2="46.0" stroke="#b5651d" stroke-width="2.4"/><circle cx="42.0" cy="182.0" r="4" fill="#2856BE"/><circle cx="184.0" cy="46.0" r="4" fill="#2856BE"/><text x="113.0" y="196.0" font-size="12" font-weight="600" text-anchor="middle" fill="#2F7D32">Δt = 4 h</text><text x="190.0" y="118.0" font-size="12" font-weight="600" text-anchor="start" fill="#b5651d">ΔT = +8 °C</text></svg>
+        <p>Abgelesen: \(T(0)=16\), \(T(4)=24\).</p>
+        <p>\(\dfrac{24-16}{4-0}=\dfrac{8}{4}=2\) &nbsp;→ Zwischen 8 und 12 Uhr steigt die Temperatur um durchschnittlich <strong>2 °C pro Stunde</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; <strong>Zeichnerisch:</strong> Bestimme ebenso die mittlere Änderungsrate im Intervall \([4;\,8]\).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Achte auf das Vorzeichen: Fällt die Sekante, ist die Änderungsrate negativ.</p></div>
+    </details>
+    <div class="check" data-loesung="-2">
+      <input type="text" class="antwort" placeholder="°C pro Stunde" aria-label="mittlere Änderungsrate von 4 bis 8">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <svg viewBox="0 0 340 250" role="img" aria-label="Graph mit Sekante von t gleich 4 bis t gleich 8" style="width:100%;max-width:420px;height:auto;display:block;margin:.6rem 0;font-family:system-ui,sans-serif"><line x1="42.0" y1="216.0" x2="42.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="77.5" y1="216.0" x2="77.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="113.0" y1="216.0" x2="113.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="148.5" y1="216.0" x2="148.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="184.0" y1="216.0" x2="184.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="219.5" y1="216.0" x2="219.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="255.0" y1="216.0" x2="255.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="290.5" y1="216.0" x2="290.5" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="326.0" y1="216.0" x2="326.0" y2="12.0" stroke="#eee4da" stroke-width="1"/><line x1="42.0" y1="216.0" x2="326.0" y2="216.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="199.0" x2="326.0" y2="199.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="182.0" x2="326.0" y2="182.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="165.0" x2="326.0" y2="165.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="148.0" x2="326.0" y2="148.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="131.0" x2="326.0" y2="131.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="114.0" x2="326.0" y2="114.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="97.0" x2="326.0" y2="97.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="80.0" x2="326.0" y2="80.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="63.0" x2="326.0" y2="63.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="46.0" x2="326.0" y2="46.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="29.0" x2="326.0" y2="29.0" stroke="#f1e9e1" stroke-width="1"/><line x1="42.0" y1="12.0" x2="326.0" y2="12.0" stroke="#e2d6ca" stroke-width="1"/><line x1="42.0" y1="216.0" x2="332.0" y2="216.0" stroke="#6b625a" stroke-width="1.3"/><line x1="42.0" y1="216.0" x2="42.0" y2="6.0" stroke="#6b625a" stroke-width="1.3"/><text x="42.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">0</text><text x="77.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">1</text><text x="113.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">2</text><text x="148.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">3</text><text x="184.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">4</text><text x="219.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">5</text><text x="255.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">6</text><text x="290.5" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">7</text><text x="326.0" y="231.0" font-size="11" text-anchor="middle" fill="#6b625a">8</text><text x="36.0" y="220.0" font-size="11" text-anchor="end" fill="#6b625a">14</text><text x="36.0" y="186.0" font-size="11" text-anchor="end" fill="#6b625a">16</text><text x="36.0" y="152.0" font-size="11" text-anchor="end" fill="#6b625a">18</text><text x="36.0" y="118.0" font-size="11" text-anchor="end" fill="#6b625a">20</text><text x="36.0" y="84.0" font-size="11" text-anchor="end" fill="#6b625a">22</text><text x="36.0" y="50.0" font-size="11" text-anchor="end" fill="#6b625a">24</text><text x="36.0" y="16.0" font-size="11" text-anchor="end" fill="#6b625a">26</text><text x="330.0" y="244.0" font-size="11" text-anchor="end" fill="#6b625a">t in h</text><text x="47.0" y="14.0" font-size="11" fill="#6b625a">T in °C</text><path d="M42.0 182.0 L43.8 178.6 L45.5 175.3 L47.3 172.0 L49.1 168.7 L50.9 165.5 L52.6 162.4 L54.4 159.2 L56.2 156.2 L58.0 153.1 L59.8 150.1 L61.5 147.2 L63.3 144.3 L65.1 141.4 L66.8 138.6 L68.6 135.8 L70.4 133.0 L72.2 130.3 L74.0 127.7 L75.7 125.1 L77.5 122.5 L79.3 120.0 L81.1 117.5 L82.8 115.0 L84.6 112.6 L86.4 110.3 L88.2 108.0 L89.9 105.7 L91.7 103.5 L93.5 101.3 L95.2 99.1 L97.0 97.0 L98.8 95.0 L100.6 92.9 L102.3 91.0 L104.1 89.0 L105.9 87.1 L107.7 85.3 L109.5 83.5 L111.2 81.7 L113.0 80.0 L114.8 78.3 L116.5 76.7 L118.3 75.1 L120.1 73.5 L121.9 72.0 L123.6 70.6 L125.4 69.1 L127.2 67.8 L129.0 66.4 L130.8 65.1 L132.5 63.9 L134.3 62.7 L136.1 61.5 L137.9 60.4 L139.6 59.3 L141.4 58.2 L143.2 57.2 L144.9 56.3 L146.7 55.4 L148.5 54.5 L150.3 53.7 L152.1 52.9 L153.8 52.1 L155.6 51.4 L157.4 50.8 L159.1 50.2 L160.9 49.6 L162.7 49.1 L164.5 48.6 L166.2 48.1 L168.0 47.7 L169.8 47.4 L171.6 47.0 L173.3 46.8 L175.1 46.5 L176.9 46.3 L178.7 46.2 L180.4 46.1 L182.2 46.0 L184.0 46.0 L185.8 46.0 L187.5 46.1 L189.3 46.2 L191.1 46.3 L192.9 46.5 L194.7 46.8 L196.4 47.0 L198.2 47.4 L200.0 47.7 L201.8 48.1 L203.5 48.6 L205.3 49.1 L207.1 49.6 L208.8 50.2 L210.6 50.8 L212.4 51.4 L214.2 52.1 L216.0 52.9 L217.7 53.7 L219.5 54.5 L221.3 55.4 L223.0 56.3 L224.8 57.2 L226.6 58.2 L228.4 59.3 L230.2 60.4 L231.9 61.5 L233.7 62.7 L235.5 63.9 L237.2 65.1 L239.0 66.4 L240.8 67.8 L242.6 69.1 L244.3 70.6 L246.1 72.0 L247.9 73.5 L249.7 75.1 L251.5 76.7 L253.2 78.3 L255.0 80.0 L256.8 81.7 L258.5 83.5 L260.3 85.3 L262.1 87.1 L263.9 89.0 L265.6 91.0 L267.4 92.9 L269.2 95.0 L271.0 97.0 L272.8 99.1 L274.5 101.3 L276.3 103.5 L278.1 105.7 L279.9 108.0 L281.6 110.3 L283.4 112.6 L285.2 115.0 L287.0 117.5 L288.7 120.0 L290.5 122.5 L292.3 125.1 L294.0 127.7 L295.8 130.3 L297.6 133.0 L299.4 135.8 L301.1 138.6 L302.9 141.4 L304.7 144.3 L306.5 147.2 L308.2 150.1 L310.0 153.1 L311.8 156.2 L313.6 159.2 L315.4 162.4 L317.1 165.5 L318.9 168.7 L320.7 172.0 L322.4 175.3 L324.2 178.6 L326.0 182.0" fill="none" stroke="#c2703a" stroke-width="2.4"/><line x1="184.0" y1="46.0" x2="326.0" y2="182.0" stroke="#2856BE" stroke-width="2"/><line x1="184.0" y1="182.0" x2="326.0" y2="182.0" stroke="#2F7D32" stroke-width="2.4"/><line x1="184.0" y1="182.0" x2="184.0" y2="46.0" stroke="#b5651d" stroke-width="2.4"/><circle cx="184.0" cy="46.0" r="4" fill="#2856BE"/><circle cx="326.0" cy="182.0" r="4" fill="#2856BE"/><text x="255.0" y="196.0" font-size="12" font-weight="600" text-anchor="middle" fill="#2F7D32">Δt = 4 h</text><text x="178.0" y="118.0" font-size="12" font-weight="600" text-anchor="end" fill="#b5651d">ΔT = −8 °C</text></svg>
+        <p>Abgelesen: \(T(4)=24\), \(T(8)=16\).</p>
+        <p>\(\dfrac{16-24}{8-4}=\dfrac{-8}{4}=-2\) &nbsp;→ Zwischen 12 und 16 Uhr sinkt die Temperatur um durchschnittlich <strong>2 °C pro Stunde</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>c)&nbsp; Im Intervall \([2;\,6]\) ist die mittlere Änderungsrate \(0\). Was bedeutet das?</p>
+    <div class="choice" data-correct="b"><button type="button" class="opt" data-val="a">Zwischen 10 und 14 Uhr blieb die Temperatur gleich.</button><button type="button" class="opt" data-val="b">Um 10 Uhr und um 14 Uhr war es gleich warm.</button><button type="button" class="opt" data-val="c">Um 10 Uhr betrug die Temperatur 0 °C.</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>\(\dfrac{T(6)-T(2)}{6-2}=\dfrac{22-22}{4}=0\): Anfangs- und Endwert sind gleich, die Sekante ist waagerecht.</p><p>Dazwischen war es aber wärmer (bis \(24\) °C)! Die mittlere Änderungsrate vergleicht nur Anfang und Ende – was <em>dazwischen</em> passiert, sieht man ihr nicht an.</p></div></div>
+  </div>
+
+  <div class="teil">
+    <p>d)&nbsp; <strong>Rechnerisch:</strong> Der Graph gehört zu \(T(t)=-0{,}5t^2+4t+16\). Berechne die mittlere Änderungsrate im Intervall \([1;\,5]\).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Differenzenquotient: \(\dfrac{T(5)-T(1)}{5-1}\). Berechne zuerst \(T(1)\) und \(T(5)\) – diese Werte kann man am Graphen nicht genau ablesen.</p></div>
+    </details>
+    <div class="check" data-loesung="1">
+      <input type="text" class="antwort" placeholder="°C pro Stunde" aria-label="mittlere Änderungsrate von 1 bis 5">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>\(T(1)=-0{,}5+4+16=19{,}5\)</p>
+        <p>\(T(5)=-0{,}5\cdot 25+20+16=-12{,}5+36=23{,}5\)</p>
+        <p>\(\dfrac{23{,}5-19{,}5}{5-1}=\dfrac{4}{4}=1\) &nbsp;→ durchschnittlich <strong>1 °C pro Stunde</strong> wärmer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 2: Lokale Änderungsrate</h2>
+  <p>Gegeben ist \(f(x)=x^2\). Gesucht ist die lokale Änderungsrate an der Stelle \(x_0=3\).</p>
+
+  <div class="teil">
+    <p>a)&nbsp; <strong>Immer kleinere Intervalle:</strong> Berechne mit dem Taschenrechner die mittleren Änderungsraten in den Intervallen \([3;\,3{,}1]\), \([3;\,3{,}01]\) und \([3;\,3{,}001]\). Welchem Wert nähern sie sich?</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Zum Beispiel: \(\dfrac{f(3{,}1)-f(3)}{3{,}1-3}=\dfrac{3{,}1^2-9}{0{,}1}\)</p></div>
+    </details>
+    <div class="check" data-loesung="6">
+      <input type="text" class="antwort" placeholder="Grenzwert" aria-label="vermutete lokale Änderungsrate">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>\([3;\,3{,}1]\): &nbsp;\(\dfrac{9{,}61-9}{0{,}1}=6{,}1\)</p>
+        <p>\([3;\,3{,}01]\): &nbsp;\(\dfrac{9{,}0601-9}{0{,}01}=6{,}01\)</p>
+        <p>\([3;\,3{,}001]\): &nbsp;\(\dfrac{9{,}006001-9}{0{,}001}=6{,}001\)</p>
+        <p>Die mittleren Änderungsraten nähern sich dem Wert <strong>6</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; <strong>Exakt mit \(x \to x_0\):</strong> Bestätige deinen Wert, indem du den Grenzwert berechnest:</p>
+    <p>$$\lim_{x\to 3}\frac{f(x)-f(3)}{x-3}$$</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp">
+        <p>Schritte wie im Unterricht: Differenzenquotient aufstellen → Zähler faktorisieren (3. binomische Formel) → kürzen → \(x=3\) einsetzen.</p>
+        <p>\(x^2-9=(x-3)(\,\dots\,)\)</p>
+      </div>
+    </details>
+    <div class="check" data-loesung="6">
+      <input type="text" class="antwort" placeholder="Grenzwert" aria-label="lokale Änderungsrate exakt bei 3">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>\(\dfrac{x^2-9}{x-3}=\dfrac{(x-3)(x+3)}{x-3}=x+3\) &nbsp;(kürzen erlaubt, da \(x\neq 3\))</p>
+        <p>\(\lim\limits_{x\to 3}(x+3)=3+3=6\)</p>
+        <p>Also: Die lokale Änderungsrate von \(f\) an der Stelle \(3\) ist genau <strong>6</strong> – derselbe Wert wie in a).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>c)&nbsp; ★ Berechne ebenso exakt die lokale Änderungsrate von \(f(x)=x^2\) an der Stelle \(x_0=-2\).</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Vorsicht mit dem Vorzeichen: \(x-x_0=x-(-2)=x+2\) und \(f(-2)=4\).</p></div>
+    </details>
+    <div class="check" data-loesung="-4">
+      <input type="text" class="antwort" placeholder="Grenzwert" aria-label="lokale Änderungsrate exakt bei minus 2">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none">
+        <p>\(\dfrac{x^2-4}{x+2}=\dfrac{(x-2)(x+2)}{x+2}=x-2\)</p>
+        <p>\(\lim\limits_{x\to -2}(x-2)=-2-2=-4\)</p>
+        <p class="meta">Negativ: Links vom Scheitelpunkt fällt die Parabel.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>d)&nbsp; Die lokale Änderungsrate von \(f(x)=x^2\) an der Stelle \(3\) ist \(6\). Was bedeutet das am Graphen?</p>
+    <div class="choice" data-correct="a"><button type="button" class="opt" data-val="a">Die Tangente im Punkt \(P(3\mid 9)\) hat die Steigung \(6\).</button><button type="button" class="opt" data-val="b">Die Sekante durch \((0\mid 0)\) und \(P(3\mid 9)\) hat die Steigung \(6\).</button><button type="button" class="opt" data-val="c">Der Graph geht durch den Punkt \((3\mid 6)\).</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Lokale Änderungsrate = Grenzwert der Sekantensteigungen = <strong>Tangentensteigung</strong> im Punkt \(P(3\mid 9)\).</p><p class="meta">Die Sekante durch \((0\mid 0)\) und \((3\mid 9)\) hat nur die Steigung \(\frac{9}{3}=3\) – das ist eine <em>mittlere</em> Änderungsrate. Und \(f(3)=9\), nicht \(6\).</p></div></div>
+  </div>
+</section>
+
+<p><a href="index.html">← zur Übersicht</a></p>
+
+<script src="schuljahr.js"></script>
+<script>schreibeDatum(5);</script>
+<script src="kontrolle.js?v=5"></script>
+<script src="choice.js?v=1"></script>
+</body>
+</html>
