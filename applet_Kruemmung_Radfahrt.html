@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radfahrt</title>
+<style>
+  :root{
+    --akzent:#2E5AAC; --akzent-dunkel:#1c3a72;
+    --grau:#666; --bg:#ffffff; --panel:#f2f5fb; --rand:#cdd8ee;
+    --links:#2E5AAC; --rechts:#C77F1A; --gerade:#1E8449;
+    --bogen:#C77F1A;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;color:#1b1b1b;background:var(--bg);}
+  .wrap{max-width:1200px;margin:0 auto;padding:16px;}
+  h1{font-size:1.35rem;color:var(--akzent-dunkel);margin:.2rem 0 1rem;}
+  .layout{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;}
+  .figur{flex:3 1 560px;min-width:320px;}
+  .seite{flex:1 1 260px;min-width:240px;}
+  svg{width:100%;height:auto;touch-action:none;user-select:none;border-radius:10px;}
+  text{font-family:inherit;}
+  .panel{background:var(--panel);border:1px solid var(--rand);border-radius:10px;padding:14px 16px;margin-bottom:14px;}
+  .readout .zeile{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--rand);}
+  .readout .zeile:last-child{border-bottom:none;}
+  .readout .lab{color:var(--grau);font-size:.95rem;}
+  .readout .val{font-variant-numeric:tabular-nums;font-weight:600;font-size:1.15rem;}
+  .controls label{display:block;font-size:.9rem;color:var(--grau);margin:.2rem 0 .3rem;}
+  input[type=range]{width:100%;accent-color:var(--akzent);}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  button{font:inherit;border:1px solid var(--akzent);background:#fff;color:var(--akzent);border-radius:8px;padding:8px 14px;cursor:pointer;}
+  button:hover{background:var(--akzent);color:#fff;}
+  button:focus-visible{outline:3px solid #9db6e6;outline-offset:2px;}
+  button.aktiv{background:var(--akzent);color:#fff;}
+  .opt{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.92rem;color:#333;}
+  .opt input{width:18px;height:18px;flex:none;}
+  .opt label{margin:0 !important;color:#333 !important;}
+  .hinweis{font-size:.85rem;color:var(--grau);margin-top:10px;line-height:1.45;}
+  .merk{background:#fff7ec;border:1px solid #e7cfa0;border-radius:8px;padding:8px 10px;margin-top:12px;font-size:.92rem;color:#7a5312;}
+  .versteckt{display:none !important;}
+  @media (prefers-reduced-motion: reduce){ #play{display:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="layout">
+    <div class="figur">
+      <svg id="fig" viewBox="0 0 800 460" aria-label="Eine kurvige Straße von oben, auf der ein Fahrrad von links nach rechts fährt. Optional mit Koordinatensystem: Die Straße ist der Graph von f(x) = x hoch 4 minus 6 x Quadrat.">
+        <rect id="gras" x="0" y="0" width="800" height="460" fill="#cfe5c3"/>
+        <g id="koord" style="display:none"></g>
+        <path id="bereichL1" fill="none" stroke="var(--links)" stroke-width="54" stroke-linecap="butt" opacity=".35" style="display:none"/>
+        <path id="bereichR"  fill="none" stroke="var(--rechts)" stroke-width="54" stroke-linecap="butt" opacity=".4" style="display:none"/>
+        <path id="bereichL2" fill="none" stroke="var(--links)" stroke-width="54" stroke-linecap="butt" opacity=".35" style="display:none"/>
+        <path id="strasse" fill="none" stroke="#6d6d6d" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="mittellinie" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="12 12"/>
+        <path id="graph" fill="none" stroke="#1F6FB2" stroke-width="3.2" style="display:none"/>
+        <g id="wpMarker" style="display:none">
+          <line id="wpL1" stroke="var(--gerade)" stroke-width="2" stroke-dasharray="6 5"/>
+          <line id="wpL2" stroke="var(--gerade)" stroke-width="2" stroke-dasharray="6 5"/>
+        </g>
+        <g id="bike">
+          <!-- Fahrrad von oben, Fahrtrichtung = +x im lokalen System -->
+          <rect x="-19" y="-2.6" width="11" height="5.2" rx="2.4" fill="#111"/>
+          <line x1="-13" y1="0" x2="12" y2="0" stroke="#222" stroke-width="3"/>
+          <g id="front">
+            <rect x="8" y="-2.6" width="11" height="5.2" rx="2.4" fill="#111"/>
+            <line id="lenker" x1="12" y1="-11" x2="12" y2="11" stroke="#111" stroke-width="3.4" stroke-linecap="round"/>
+          </g>
+          <circle cx="-2" cy="0" r="6.5" fill="#D2323C" stroke="#fff" stroke-width="1.5"/>
+        </g>
+        <g id="grossLenker" style="display:none">
+          <g id="glDreh">
+            <line x1="-85" y1="0" x2="85" y2="0" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+            <rect x="-100" y="-9" width="34" height="18" rx="7" fill="#111"/>
+            <rect x="66" y="-9" width="34" height="18" rx="7" fill="#111"/>
+            <line x1="0" y1="0" x2="0" y2="40" stroke="#222" stroke-width="8" stroke-linecap="round"/>
+            <rect x="-7" y="30" width="14" height="44" rx="6" fill="#111"/>
+          </g>
+        </g>
+        <text id="schild" x="400" y="440" text-anchor="middle" font-size="26" font-weight="700" fill="#111" style="display:none"></text>
+      </svg>
+    </div>
+
+    <div class="seite">
+      <div class="panel readout">
+        <div class="zeile" id="zLenk"><span class="lab">Lenker</span><span class="val" id="rLenk">–</span></div>
+        <div class="zeile versteckt" id="zX"><span class="lab">Stelle x</span><span class="val" id="rX">–</span></div>
+        <div class="zeile versteckt" id="zF2"><span class="lab">f″(x)</span><span class="val" id="rF2">–</span></div>
+      </div>
+
+      <div class="panel controls">
+        
+        <input id="xS" type="range" min="-2.6" max="2.6" step="0.01" value="-2.6" aria-label="Position des Fahrrads">
+        <div class="btns">
+          <button id="play">▶ Losfahren</button>
+          <button id="reset">⟲ Zurück zum Start</button>
+        </div>
+        <div class="opt"><input type="checkbox" id="stopp" checked><label for="stopp">anhalten, wenn der Lenker umschlägt</label></div>
+        <div class="opt"><input type="checkbox" id="lenkAn"><label for="lenkAn">Lenkrichtung anzeigen</label></div>
+        <div class="opt"><input type="checkbox" id="bereiche"><label for="bereiche">Links-/Rechtskurve einfärben</label></div>
+        <div class="opt"><input type="checkbox" id="achsen"><label for="achsen">Koordinatensystem einblenden</label></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const NS='http://www.w3.org/2000/svg';
+  const fig=$('fig');
+
+  // ---- Funktion f(x) = x^4 - 6x^2 ----
+  const f  = x => x**4 - 6*x*x;
+  const f1 = x => 4*x**3 - 12*x;
+  const f2 = x => 12*x*x - 12;
+
+  // ---- Koordinaten: x in [-3,3], y in [-11,7] ----
+  const XMIN=-3, XMAX=3, YMIN=-11, YMAX=7;
+  const W=800, H=460, PAD=10;
+  const SX=(W-2*PAD)/(XMAX-XMIN), SY=(H-2*PAD)/(YMAX-YMIN);
+  const px = x => PAD + (x-XMIN)*SX;
+  const py = y => PAD + (YMAX-y)*SY;
+  const XA=-2.6, XE=2.6;            // Fahrstrecke (f bleibt im Bild)
+  const WP=[-1,1];                   // Wendestellen
+  const fmt=(x,n=2)=>(Math.abs(x)<1e-9?0:x).toFixed(n).replace('.',',').replace(/^-/,'−');
+
+  function pfad(a,b){ let d=''; const n=200;
+    for(let i=0;i<=n;i++){ const x=a+(b-a)*i/n; d+=(i?'L':'M')+px(x).toFixed(2)+' '+py(f(x)).toFixed(2)+' '; }
+    return d; }
+
+  // Straße, Mittellinie, Graph, Bereiche
+  const dAll=pfad(XA,XE);
+  $('strasse').setAttribute('d',dAll);
+  $('mittellinie').setAttribute('d',dAll);
+  $('graph').setAttribute('d',dAll);
+  $('bereichL1').setAttribute('d',pfad(XA,-1));
+  $('bereichR').setAttribute('d',pfad(-1,1));
+  $('bereichL2').setAttribute('d',pfad(1,XE));
+
+  // Wendestellen-Linien (senkrecht)
+  [['wpL1',-1],['wpL2',1]].forEach(([id,x])=>{ const e=$(id);
+    e.setAttribute('x1',px(x)); e.setAttribute('x2',px(x)); e.setAttribute('y1',PAD); e.setAttribute('y2',H-PAD); });
+
+  // Koordinatensystem
+  (function buildAxis(){
+    const g=$('koord');
+    const add=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);g.appendChild(e);return e;};
+    add('rect',{x:0,y:0,width:W,height:H,fill:'#ffffff'});
+    for(let x=-3;x<=3;x+=0.5) add('line',{x1:px(x),x2:px(x),y1:PAD,y2:H-PAD,stroke:Number.isInteger(x)?'#d4d9e3':'#eceff4','stroke-width':1});
+    for(let y=-10;y<=6;y+=1) add('line',{x1:PAD,x2:W-PAD,y1:py(y),y2:py(y),stroke:(y%2===0)?'#d4d9e3':'#eceff4','stroke-width':1});
+    add('line',{x1:PAD,x2:W-PAD,y1:py(0),y2:py(0),stroke:'#333','stroke-width':1.6});
+    add('line',{x1:px(0),x2:px(0),y1:PAD,y2:H-PAD,stroke:'#333','stroke-width':1.6});
+    add('path',{d:`M ${W-PAD} ${py(0)} l -10 -5 l 0 10 z`,fill:'#333'});
+    add('path',{d:`M ${px(0)} ${PAD} l -5 10 l 10 0 z`,fill:'#333'});
+    for(let x=-2;x<=2;x++){ if(x===0)continue;
+      add('line',{x1:px(x),x2:px(x),y1:py(0)-5,y2:py(0)+5,stroke:'#333','stroke-width':1.4});
+      const t=add('text',{x:px(x),y:py(0)+22,'text-anchor':'middle','font-size':16,fill:'#333'}); t.textContent=(x<0?'−':'')+Math.abs(x); }
+    for(let y=-10;y<=6;y+=2){ if(y===0)continue;
+      add('line',{x1:px(0)-5,x2:px(0)+5,y1:py(y),y2:py(y),stroke:'#333','stroke-width':1.4});
+      const t=add('text',{x:px(0)-9,y:py(y)+5,'text-anchor':'end','font-size':15,fill:'#333'}); t.textContent=(y<0?'−':'')+Math.abs(y); }
+    let t=add('text',{x:W-PAD-6,y:py(0)-10,'text-anchor':'end','font-size':18,'font-style':'italic',fill:'#333'}); t.textContent='x';
+    t=add('text',{x:px(0)+10,y:PAD+16,'font-size':18,'font-style':'italic',fill:'#333'}); t.textContent='y';
+    t=add('text',{x:px(-1.95),y:py(3),'font-size':22,'font-style':'italic','font-weight':700,fill:'#1F6FB2'}); t.textContent='f';
+  })();
+
+  // ---- Zustand ----
+  let x=XA, playing=false, raf=null, haltStelle=null;
+
+  // Lenkwinkel aus der Krümmung im Bild (Grad, links = positiv)
+  function lenkwinkel(xx){
+    const s=SY/SX, k=(SY/(SX*SX))*f2(xx)/Math.pow(1+(s*f1(xx))**2,1.5);
+    const m=Math.min(1,Math.abs(k)*40);           // 0..1 je nach Kurvenstärke
+    return Math.sign(f2(xx))*(22+23*m);            // immer deutlich: 22° bis 45°
+  }
+  const istWP = xx => WP.some(w=>Math.abs(xx-w)<1e-9);
+
+  function update(){
+    const X=px(x), Y=py(f(x));
+    const head=Math.atan2(-SY*f1(x),SX)*180/Math.PI;  // Fahrtrichtung im Bild
+    let lw=istWP(x)?0:lenkwinkel(x);
+    $('bike').setAttribute('transform',`translate(${X.toFixed(2)} ${Y.toFixed(2)}) rotate(${head.toFixed(2)}) scale(1.8)`);
+    // links lenken = gegen den Uhrzeigersinn = negativer SVG-Winkel
+    $('front').setAttribute('transform',`rotate(${(-lw).toFixed(2)} 12 0)`);
+
+    const zeigLenk=$('lenkAn').checked;
+    let txt, col;
+    if(istWP(x)||Math.abs(f2(x))<1e-9){ txt='gerade'; col='var(--gerade)'; }
+    else if(f2(x)>0){ txt='links ↶'; col='var(--links)'; }
+    else { txt='rechts ↷'; col='var(--rechts)'; }
+    $('rLenk').textContent=zeigLenk?txt:'?';
+    $('rLenk').style.color=zeigLenk?col:'#999';
+    const sch=$('schild');
+    if(zeigLenk){ sch.style.display=''; sch.textContent='Lenker: '+txt; sch.setAttribute('fill',getComputedStyle(document.documentElement).getPropertyValue(col.slice(4,-1)).trim()||'#111'); }
+    else sch.style.display='none';
+    $('grossLenker').style.display=zeigLenk?'':'none';
+    $('glDreh').setAttribute('transform',`rotate(${(-lw).toFixed(2)})`);
+
+    $('rX').textContent=fmt(x,2);
+    const v=istWP(x)?0:f2(x);
+    $('rF2').textContent=fmt(v,2);
+    $('rF2').style.color=v>1e-9?'var(--links)':(v<-1e-9?'var(--rechts)':'var(--gerade)');
+    $('xS').value=x;
+  }
+
+  function ansicht(){
+    const ax=$('achsen').checked, ber=$('bereiche').checked;
+    $('koord').style.display=ax?'':'none';
+    $('gras').style.display=ax?'none':'';
+    $('strasse').setAttribute('opacity',ax?'.22':'1');
+    $('mittellinie').style.display=ax?'none':'';
+    $('graph').style.display=ax?'':'none';
+    ['bereichL1','bereichR','bereichL2'].forEach(id=>$(id).style.display=ber?'':'none');
+    $('wpMarker').style.display=(ber&&ax)?'':'none';
+    $('zX').classList.toggle('versteckt',!ax);
+    $('zF2').classList.toggle('versteckt',!ax);
+    $('schild').setAttribute('y',ax?'172':'440'); $('schild').setAttribute('x',ax?'600':'400');
+    $('grossLenker').setAttribute('transform',ax?'translate(600 85)':'translate(400 340)');
+    update();
+  }
+
+  function setX(nx,pruefen){
+    nx=Math.max(XA,Math.min(XE,nx));
+    if(pruefen && $('stopp').checked){
+      for(const w of WP){
+        if(haltStelle!==w && ((x<w&&nx>=w)||(x>w&&nx<=w))){ x=w; haltStelle=w; stop(); update(); return; }
+      }
+    }
+    if(haltStelle!==null && Math.abs(nx-haltStelle)>0.05) haltStelle=null;
+    x=nx; update();
+  }
+
+  // ---- Abspielen ----
+  const playBtn=$('play');
+  function stop(){ playing=false; playBtn.classList.remove('aktiv'); playBtn.textContent=(x>=XE?'▶ Losfahren':'▶ Weiterfahren'); if(raf)cancelAnimationFrame(raf); }
+  function loop(){ if(!playing)return; if(x>=XE){stop();return;}
+    setX(x+0.011,true); if(!playing)return;
+    raf=requestAnimationFrame(()=>setTimeout(loop,18)); }
+  playBtn.addEventListener('click',()=>{
+    if(playing){stop();return;}
+    if(x>=XE){x=XA;haltStelle=null;update();}
+    playing=true; playBtn.classList.add('aktiv'); playBtn.textContent='⏸ Anhalten'; loop(); });
+  $('reset').addEventListener('click',()=>{ stop(); haltStelle=null; x=XA; playBtn.textContent='▶ Losfahren'; update(); });
+
+  // ---- Regler & Ziehen ----
+  $('xS').addEventListener('input',()=>{ stop(); setX(+$('xS').value,false); });
+  let drag=false;
+  function xAusEvent(e){ const r=fig.getBoundingClientRect(); const sx=(e.clientX-r.left)*W/r.width; return XMIN+(sx-PAD)/SX; }
+  fig.addEventListener('pointerdown',e=>{ drag=true; stop(); fig.setPointerCapture(e.pointerId); setX(xAusEvent(e),false); });
+  fig.addEventListener('pointermove',e=>{ if(drag) setX(xAusEvent(e),false); });
+  fig.addEventListener('pointerup',()=>drag=false);
+  fig.addEventListener('pointercancel',()=>drag=false);
+
+  ['lenkAn','bereiche','achsen'].forEach(id=>$(id).addEventListener('change',ansicht));
+  ansicht();
+})();
+</script>
+</body>
+</html>
