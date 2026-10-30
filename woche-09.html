@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="schutz.js?v=4"></script>
+<title>Woche 9 – Kontrollaufgaben Mathe GK 11</title>
+<link rel="stylesheet" href="style.css?v=6">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']]}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<header>
+  <h1>Woche 9</h1>
+  <div class="meta">Ausgabe: <span data-datum></span> · Wendepunkte, f''-Kriterium für Extrempunkte, f'''-Kriterium für Wendepunkte</div>
+</header>
+<section class="aufgabe">
+  <h2>Aufgabe 1: Wendepunkt</h2>
+  <p>Die Funktion kennst du aus Woche 8: \(f(x)=x^3-6x^2+9x+1\). Dort hat sich die Krümmung irgendwo zwischen \(x=0\) und \(x=3\) geändert.</p>
+  <svg viewBox="0 0 340 250" role="img" aria-label="Graph der Funktion f aus Woche 8" style="width:100%;max-width:420px;height:auto;display:block;margin:.6rem 0;font-family:system-ui,sans-serif"><line x1="39.6" y1="12" x2="39.6" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="67.7" y1="12" x2="67.7" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="95.8" y1="12" x2="95.8" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="123.8" y1="12" x2="123.8" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="151.9" y1="12" x2="151.9" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="180.0" y1="12" x2="180.0" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="208.1" y1="12" x2="208.1" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="236.2" y1="12" x2="236.2" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="264.2" y1="12" x2="264.2" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="292.3" y1="12" x2="292.3" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="320.4" y1="12" x2="320.4" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="226.0" x2="326" y2="226.0" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="210.7" x2="326" y2="210.7" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="195.4" x2="326" y2="195.4" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="180.1" x2="326" y2="180.1" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="164.9" x2="326" y2="164.9" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="149.6" x2="326" y2="149.6" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="134.3" x2="326" y2="134.3" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="119.0" x2="326" y2="119.0" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="103.7" x2="326" y2="103.7" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="88.4" x2="326" y2="88.4" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="73.1" x2="326" y2="73.1" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="57.9" x2="326" y2="57.9" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="42.6" x2="326" y2="42.6" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="27.3" x2="326" y2="27.3" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="12.0" x2="326" y2="12.0" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="195.4" x2="331" y2="195.4" stroke="#6b625a" stroke-width="1.3"/><line x1="67.7" y1="226" x2="67.7" y2="7" stroke="#6b625a" stroke-width="1.3"/><polygon points="334,195.4 327,192.4 327,198.4" fill="#6b625a"/><polygon points="67.7,4 64.7,11 70.7,11" fill="#6b625a"/><text x="332" y="189.4" font-size="11" text-anchor="end" fill="#6b625a">x</text><text x="73.7" y="16" font-size="11" fill="#6b625a">y</text><text x="123.8" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">1</text><text x="180.0" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">2</text><text x="236.2" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">3</text><text x="292.3" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">4</text><text x="62.7" y="168.9" font-size="11" text-anchor="end" fill="#6b625a">1</text><text x="62.7" y="138.3" font-size="11" text-anchor="end" fill="#6b625a">2</text><text x="62.7" y="107.7" font-size="11" text-anchor="end" fill="#6b625a">3</text><text x="62.7" y="77.1" font-size="11" text-anchor="end" fill="#6b625a">4</text><text x="62.7" y="46.6" font-size="11" text-anchor="end" fill="#6b625a">5</text><clipPath id="c3316"><rect x="34" y="12" width="292" height="214"/></clipPath><path clip-path="url(#c3316)" d="M34.0 402.6 L35.5 389.0 L36.9 375.8 L38.4 362.8 L39.8 350.2 L41.3 337.9 L42.8 325.9 L44.2 314.1 L45.7 302.7 L47.1 291.6 L48.6 280.8 L50.1 270.3 L51.5 260.0 L53.0 250.1 L54.4 240.4 L55.9 231.0 L57.4 221.9 L58.8 213.0 L60.3 204.4 L61.7 196.1 L63.2 188.1 L64.7 180.3 L66.1 172.7 L67.6 165.4 L69.0 158.4 L70.5 151.6 L72.0 145.0 L73.4 138.7 L74.9 132.6 L76.3 126.7 L77.8 121.1 L79.3 115.7 L80.7 110.5 L82.2 105.6 L83.6 100.8 L85.1 96.3 L86.6 92.0 L88.0 87.8 L89.5 83.9 L90.9 80.2 L92.4 76.7 L93.9 73.4 L95.3 70.2 L96.8 67.3 L98.2 64.5 L99.7 62.0 L101.2 59.6 L102.6 57.3 L104.1 55.3 L105.5 53.4 L107.0 51.7 L108.5 50.1 L109.9 48.7 L111.4 47.4 L112.8 46.3 L114.3 45.4 L115.8 44.6 L117.2 43.9 L118.7 43.4 L120.1 43.0 L121.6 42.7 L123.1 42.6 L124.5 42.6 L126.0 42.7 L127.4 42.9 L128.9 43.3 L130.4 43.8 L131.8 44.3 L133.3 45.0 L134.7 45.8 L136.2 46.7 L137.7 47.7 L139.1 48.7 L140.6 49.9 L142.0 51.2 L143.5 52.5 L145.0 53.9 L146.4 55.4 L147.9 57.0 L149.3 58.6 L150.8 60.3 L152.3 62.1 L153.7 63.9 L155.2 65.8 L156.6 67.8 L158.1 69.8 L159.6 71.8 L161.0 73.9 L162.5 76.0 L163.9 78.2 L165.4 80.4 L166.9 82.6 L168.3 84.9 L169.8 87.2 L171.2 89.5 L172.7 91.9 L174.2 94.2 L175.6 96.6 L177.1 98.9 L178.5 101.3 L180.0 103.7 L181.5 106.1 L182.9 108.5 L184.4 110.9 L185.8 113.2 L187.3 115.6 L188.8 117.9 L190.2 120.2 L191.7 122.5 L193.1 124.8 L194.6 127.0 L196.1 129.2 L197.5 131.4 L199.0 133.5 L200.4 135.6 L201.9 137.7 L203.4 139.7 L204.8 141.6 L206.3 143.5 L207.7 145.3 L209.2 147.1 L210.7 148.8 L212.1 150.5 L213.6 152.0 L215.0 153.5 L216.5 154.9 L218.0 156.3 L219.4 157.5 L220.9 158.7 L222.3 159.8 L223.8 160.7 L225.3 161.6 L226.7 162.4 L228.2 163.1 L229.6 163.7 L231.1 164.1 L232.6 164.5 L234.0 164.7 L235.5 164.8 L236.9 164.8 L238.4 164.7 L239.9 164.4 L241.3 164.1 L242.8 163.5 L244.2 162.9 L245.7 162.1 L247.2 161.1 L248.6 160.0 L250.1 158.8 L251.5 157.3 L253.0 155.8 L254.5 154.1 L255.9 152.2 L257.4 150.1 L258.8 147.9 L260.3 145.5 L261.8 142.9 L263.2 140.1 L264.7 137.2 L266.1 134.0 L267.6 130.7 L269.1 127.2 L270.5 123.5 L272.0 119.6 L273.4 115.5 L274.9 111.1 L276.4 106.6 L277.8 101.9 L279.3 96.9 L280.7 91.7 L282.2 86.3 L283.7 80.7 L285.1 74.8 L286.6 68.8 L288.0 62.4 L289.5 55.9 L291.0 49.1 L292.4 42.0 L293.9 34.7 L295.3 27.2 L296.8 19.4 L298.3 11.3 L299.7 3.0 L301.2 -5.6 L302.6 -14.5 L304.1 -23.6 L305.6 -33.0 L307.0 -42.7 L308.5 -52.6 L309.9 -62.9 L311.4 -73.4 L312.9 -84.2 L314.3 -95.3 L315.8 -106.7 L317.2 -118.4 L318.7 -130.4 L320.2 -142.8 L321.6 -155.4 L323.1 -168.3 L324.5 -181.6 L326.0 -195.2" fill="none" stroke="#c2703a" stroke-width="2.4"/><text x="267.0" y="30.3" font-size="13" font-style="italic" font-weight="600" fill="#c2703a">f</text></svg>
+
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p><strong>Wendestelle:</strong> \(f''(x_0)=0\) und \(f'''(x_0)\neq0\).</p><p>An einer Wendestelle wechselt die Krümmung – der Lenker schlägt von rechts nach links um (oder umgekehrt).</p></div>
+    </details>
+
+  <div class="teil">
+    <p>a)&nbsp; Bilde \(f''(x)\) und \(f'''(x)\). Gib \(f''(x)\) ein. <span class="meta">(Term, z. B. <code>4x - 2</code>.)</span></p>
+    <div class="check" data-loesung="6x - 12">
+      <span>\(f''(x)=\)</span>
+      <input type="text" class="antwort" placeholder="Term" aria-label="zweite Ableitung">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f'(x)=3x^2-12x+9\)</p><p>\(f''(x)=6x-12\)</p><p>\(f'''(x)=6\)</p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Löse \(f''(x)=0\).</p>
+    <div class="check" data-loesung="2">
+      <span>\(x=\)</span>
+      <input type="text" class="antwort" placeholder="Zahl" aria-label="Kandidat für die Wendestelle">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(6x-12=0\ \Leftrightarrow\ x=2\)</p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>c)&nbsp; Ist \(x=2\) wirklich eine Wendestelle?</p>
+    <div class="choice" data-correct="a"><button type="button" class="opt" data-val="a">Ja, weil \(f'''(2)\neq0\)</button><button type="button" class="opt" data-val="b">Ja, weil \(f''(2)=0\) reicht</button><button type="button" class="opt" data-val="c">Nein, weil \(f'''(2)&gt;0\)</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>\(f'''(2)=6\neq0\) &nbsp;→ <strong>Wendestelle</strong>.</p><p><span class="meta">\(f''(x)=0\) allein reicht <em>nicht</em> – genauso wie \(f'(x)=0\) allein noch keinen Extrempunkt garantiert. Ob \(f'''\) positiv oder negativ ist, spielt für die Wendestelle keine Rolle, nur \(\neq0\).</span></p></div></div>
+  </div>
+
+  <div class="teil">
+    <p>d)&nbsp; Berechne die \(y\)-Koordinate des Wendepunkts.</p>
+    <div class="check" data-loesung="3">
+      <span>\(y=\)</span>
+      <input type="text" class="antwort" placeholder="Zahl" aria-label="y-Koordinate des Wendepunkts">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f(2)=8-24+18+1=3\) &nbsp;→ \(W(2\mid 3)\)</p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>e)&nbsp; ★ Bestimme die <strong>Wendetangente</strong> (Tangente im Wendepunkt). <span class="meta">(Term, z. B. <code>2x + 1</code>.)</span></p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>Steigung \(m=f'(2)\). Dann Ansatz \(t(x)=mx+b\) und \(W(2\mid3)\) einsetzen.</p></div>
+    </details>
+    <div class="check" data-loesung="-3x + 9">
+      <span>\(t(x)=\)</span>
+      <input type="text" class="antwort" placeholder="Term" aria-label="Wendetangente">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(m=f'(2)=12-24+9=-3\)</p><p>\(t(x)=-3x+b\); &nbsp;\(W(2\mid 3)\) einsetzen: \(3=-6+b\ \Leftrightarrow\ b=9\)</p><p>\(t(x)=-3x+9\)</p><p><svg viewBox="0 0 340 250" role="img" aria-label="Graph mit Wendepunkt und Wendetangente" style="width:100%;max-width:420px;height:auto;display:block;margin:.6rem 0;font-family:system-ui,sans-serif"><line x1="39.6" y1="12" x2="39.6" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="67.7" y1="12" x2="67.7" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="95.8" y1="12" x2="95.8" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="123.8" y1="12" x2="123.8" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="151.9" y1="12" x2="151.9" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="180.0" y1="12" x2="180.0" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="208.1" y1="12" x2="208.1" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="236.2" y1="12" x2="236.2" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="264.2" y1="12" x2="264.2" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="292.3" y1="12" x2="292.3" y2="226" stroke="#e2d6ca" stroke-width="1"/><line x1="320.4" y1="12" x2="320.4" y2="226" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="226.0" x2="326" y2="226.0" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="210.7" x2="326" y2="210.7" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="195.4" x2="326" y2="195.4" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="180.1" x2="326" y2="180.1" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="164.9" x2="326" y2="164.9" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="149.6" x2="326" y2="149.6" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="134.3" x2="326" y2="134.3" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="119.0" x2="326" y2="119.0" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="103.7" x2="326" y2="103.7" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="88.4" x2="326" y2="88.4" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="73.1" x2="326" y2="73.1" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="57.9" x2="326" y2="57.9" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="42.6" x2="326" y2="42.6" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="27.3" x2="326" y2="27.3" stroke="#f1e9e1" stroke-width="1"/><line x1="34" y1="12.0" x2="326" y2="12.0" stroke="#e2d6ca" stroke-width="1"/><line x1="34" y1="195.4" x2="331" y2="195.4" stroke="#6b625a" stroke-width="1.3"/><line x1="67.7" y1="226" x2="67.7" y2="7" stroke="#6b625a" stroke-width="1.3"/><polygon points="334,195.4 327,192.4 327,198.4" fill="#6b625a"/><polygon points="67.7,4 64.7,11 70.7,11" fill="#6b625a"/><text x="332" y="189.4" font-size="11" text-anchor="end" fill="#6b625a">x</text><text x="73.7" y="16" font-size="11" fill="#6b625a">y</text><text x="123.8" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">1</text><text x="180.0" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">2</text><text x="236.2" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">3</text><text x="292.3" y="209.4" font-size="11" text-anchor="middle" fill="#6b625a">4</text><text x="62.7" y="168.9" font-size="11" text-anchor="end" fill="#6b625a">1</text><text x="62.7" y="138.3" font-size="11" text-anchor="end" fill="#6b625a">2</text><text x="62.7" y="107.7" font-size="11" text-anchor="end" fill="#6b625a">3</text><text x="62.7" y="77.1" font-size="11" text-anchor="end" fill="#6b625a">4</text><text x="62.7" y="46.6" font-size="11" text-anchor="end" fill="#6b625a">5</text><clipPath id="c61381"><rect x="34" y="12" width="292" height="214"/></clipPath><path clip-path="url(#c61381)" d="M34.0 402.6 L35.5 389.0 L36.9 375.8 L38.4 362.8 L39.8 350.2 L41.3 337.9 L42.8 325.9 L44.2 314.1 L45.7 302.7 L47.1 291.6 L48.6 280.8 L50.1 270.3 L51.5 260.0 L53.0 250.1 L54.4 240.4 L55.9 231.0 L57.4 221.9 L58.8 213.0 L60.3 204.4 L61.7 196.1 L63.2 188.1 L64.7 180.3 L66.1 172.7 L67.6 165.4 L69.0 158.4 L70.5 151.6 L72.0 145.0 L73.4 138.7 L74.9 132.6 L76.3 126.7 L77.8 121.1 L79.3 115.7 L80.7 110.5 L82.2 105.6 L83.6 100.8 L85.1 96.3 L86.6 92.0 L88.0 87.8 L89.5 83.9 L90.9 80.2 L92.4 76.7 L93.9 73.4 L95.3 70.2 L96.8 67.3 L98.2 64.5 L99.7 62.0 L101.2 59.6 L102.6 57.3 L104.1 55.3 L105.5 53.4 L107.0 51.7 L108.5 50.1 L109.9 48.7 L111.4 47.4 L112.8 46.3 L114.3 45.4 L115.8 44.6 L117.2 43.9 L118.7 43.4 L120.1 43.0 L121.6 42.7 L123.1 42.6 L124.5 42.6 L126.0 42.7 L127.4 42.9 L128.9 43.3 L130.4 43.8 L131.8 44.3 L133.3 45.0 L134.7 45.8 L136.2 46.7 L137.7 47.7 L139.1 48.7 L140.6 49.9 L142.0 51.2 L143.5 52.5 L145.0 53.9 L146.4 55.4 L147.9 57.0 L149.3 58.6 L150.8 60.3 L152.3 62.1 L153.7 63.9 L155.2 65.8 L156.6 67.8 L158.1 69.8 L159.6 71.8 L161.0 73.9 L162.5 76.0 L163.9 78.2 L165.4 80.4 L166.9 82.6 L168.3 84.9 L169.8 87.2 L171.2 89.5 L172.7 91.9 L174.2 94.2 L175.6 96.6 L177.1 98.9 L178.5 101.3 L180.0 103.7 L181.5 106.1 L182.9 108.5 L184.4 110.9 L185.8 113.2 L187.3 115.6 L188.8 117.9 L190.2 120.2 L191.7 122.5 L193.1 124.8 L194.6 127.0 L196.1 129.2 L197.5 131.4 L199.0 133.5 L200.4 135.6 L201.9 137.7 L203.4 139.7 L204.8 141.6 L206.3 143.5 L207.7 145.3 L209.2 147.1 L210.7 148.8 L212.1 150.5 L213.6 152.0 L215.0 153.5 L216.5 154.9 L218.0 156.3 L219.4 157.5 L220.9 158.7 L222.3 159.8 L223.8 160.7 L225.3 161.6 L226.7 162.4 L228.2 163.1 L229.6 163.7 L231.1 164.1 L232.6 164.5 L234.0 164.7 L235.5 164.8 L236.9 164.8 L238.4 164.7 L239.9 164.4 L241.3 164.1 L242.8 163.5 L244.2 162.9 L245.7 162.1 L247.2 161.1 L248.6 160.0 L250.1 158.8 L251.5 157.3 L253.0 155.8 L254.5 154.1 L255.9 152.2 L257.4 150.1 L258.8 147.9 L260.3 145.5 L261.8 142.9 L263.2 140.1 L264.7 137.2 L266.1 134.0 L267.6 130.7 L269.1 127.2 L270.5 123.5 L272.0 119.6 L273.4 115.5 L274.9 111.1 L276.4 106.6 L277.8 101.9 L279.3 96.9 L280.7 91.7 L282.2 86.3 L283.7 80.7 L285.1 74.8 L286.6 68.8 L288.0 62.4 L289.5 55.9 L291.0 49.1 L292.4 42.0 L293.9 34.7 L295.3 27.2 L296.8 19.4 L298.3 11.3 L299.7 3.0 L301.2 -5.6 L302.6 -14.5 L304.1 -23.6 L305.6 -33.0 L307.0 -42.7 L308.5 -52.6 L309.9 -62.9 L311.4 -73.4 L312.9 -84.2 L314.3 -95.3 L315.8 -106.7 L317.2 -118.4 L318.7 -130.4 L320.2 -142.8 L321.6 -155.4 L323.1 -168.3 L324.5 -181.6 L326.0 -195.2" fill="none" stroke="#c2703a" stroke-width="2.4"/><path clip-path="url(#c61381)" d="M34.0 -134.7 L35.5 -132.4 L36.9 -130.0 L38.4 -127.6 L39.8 -125.2 L41.3 -122.8 L42.8 -120.4 L44.2 -118.1 L45.7 -115.7 L47.1 -113.3 L48.6 -110.9 L50.1 -108.5 L51.5 -106.1 L53.0 -103.7 L54.4 -101.4 L55.9 -99.0 L57.4 -96.6 L58.8 -94.2 L60.3 -91.8 L61.7 -89.4 L63.2 -87.1 L64.7 -84.7 L66.1 -82.3 L67.6 -79.9 L69.0 -77.5 L70.5 -75.1 L72.0 -72.7 L73.4 -70.4 L74.9 -68.0 L76.3 -65.6 L77.8 -63.2 L79.3 -60.8 L80.7 -58.4 L82.2 -56.1 L83.6 -53.7 L85.1 -51.3 L86.6 -48.9 L88.0 -46.5 L89.5 -44.1 L90.9 -41.7 L92.4 -39.4 L93.9 -37.0 L95.3 -34.6 L96.8 -32.2 L98.2 -29.8 L99.7 -27.4 L101.2 -25.1 L102.6 -22.7 L104.1 -20.3 L105.5 -17.9 L107.0 -15.5 L108.5 -13.1 L109.9 -10.7 L111.4 -8.4 L112.8 -6.0 L114.3 -3.6 L115.8 -1.2 L117.2 1.2 L118.7 3.6 L120.1 5.9 L121.6 8.3 L123.1 10.7 L124.5 13.1 L126.0 15.5 L127.4 17.9 L128.9 20.3 L130.4 22.6 L131.8 25.0 L133.3 27.4 L134.7 29.8 L136.2 32.2 L137.7 34.6 L139.1 36.9 L140.6 39.3 L142.0 41.7 L143.5 44.1 L145.0 46.5 L146.4 48.9 L147.9 51.3 L149.3 53.6 L150.8 56.0 L152.3 58.4 L153.7 60.8 L155.2 63.2 L156.6 65.6 L158.1 67.9 L159.6 70.3 L161.0 72.7 L162.5 75.1 L163.9 77.5 L165.4 79.9 L166.9 82.3 L168.3 84.6 L169.8 87.0 L171.2 89.4 L172.7 91.8 L174.2 94.2 L175.6 96.6 L177.1 98.9 L178.5 101.3 L180.0 103.7 L181.5 106.1 L182.9 108.5 L184.4 110.9 L185.8 113.3 L187.3 115.6 L188.8 118.0 L190.2 120.4 L191.7 122.8 L193.1 125.2 L194.6 127.6 L196.1 129.9 L197.5 132.3 L199.0 134.7 L200.4 137.1 L201.9 139.5 L203.4 141.9 L204.8 144.3 L206.3 146.6 L207.7 149.0 L209.2 151.4 L210.7 153.8 L212.1 156.2 L213.6 158.6 L215.0 160.9 L216.5 163.3 L218.0 165.7 L219.4 168.1 L220.9 170.5 L222.3 172.9 L223.8 175.3 L225.3 177.6 L226.7 180.0 L228.2 182.4 L229.6 184.8 L231.1 187.2 L232.6 189.6 L234.0 191.9 L235.5 194.3 L236.9 196.7 L238.4 199.1 L239.9 201.5 L241.3 203.9 L242.8 206.3 L244.2 208.6 L245.7 211.0 L247.2 213.4 L248.6 215.8 L250.1 218.2 L251.5 220.6 L253.0 222.9 L254.5 225.3 L255.9 227.7 L257.4 230.1 L258.8 232.5 L260.3 234.9 L261.8 237.3 L263.2 239.6 L264.7 242.0 L266.1 244.4 L267.6 246.8 L269.1 249.2 L270.5 251.6 L272.0 253.9 L273.4 256.3 L274.9 258.7 L276.4 261.1 L277.8 263.5 L279.3 265.9 L280.7 268.2 L282.2 270.6 L283.7 273.0 L285.1 275.4 L286.6 277.8 L288.0 280.2 L289.5 282.6 L291.0 284.9 L292.4 287.3 L293.9 289.7 L295.3 292.1 L296.8 294.5 L298.3 296.9 L299.7 299.2 L301.2 301.6 L302.6 304.0 L304.1 306.4 L305.6 308.8 L307.0 311.2 L308.5 313.6 L309.9 315.9 L311.4 318.3 L312.9 320.7 L314.3 323.1 L315.8 325.5 L317.2 327.9 L318.7 330.2 L320.2 332.6 L321.6 335.0 L323.1 337.4 L324.5 339.8 L326.0 342.2" fill="none" stroke="#2856BE" stroke-width="2.4"/><circle cx="180.0" cy="103.7" r="4" fill="#2856BE"/><text x="267.0" y="30.3" font-size="13" font-style="italic" font-weight="600" fill="#c2703a">f</text><text x="81.7" y="24.2" font-size="13" font-style="italic" font-weight="600" fill="#2856BE">t</text></svg></p><p><span class="meta">An der Wendestelle fällt \(f\) am stärksten – die Wendetangente ist die „steilste“ Tangente in diesem Bereich.</span></p></div>
+    </div>
+  </div>
+
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 2: Extrempunkte mit dem f''-Kriterium</h2>
+  <p>Gegeben ist \(f(x)=2x^3-3x^2-12x+1\).</p>
+
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p><strong>\(f''\)-Kriterium:</strong> Ist \(f'(x_0)=0\) und</p><p>\(f''(x_0)&lt;0\ \Rightarrow\) Hochpunkt (rechtsgekrümmt, Kuppe), &nbsp;\(f''(x_0)&gt;0\ \Rightarrow\) Tiefpunkt (linksgekrümmt, Tal).</p><p>Das ersetzt die Monotonietabelle – du brauchst keine Testwerte mehr.</p></div>
+    </details>
+
+  <div class="teil">
+    <p>a)&nbsp; Löse \(f'(x)=0\).</p>
+    <div class="check" data-loesung="-1; 2">
+      <span>\(x=\)</span>
+      <input type="text" class="antwort" placeholder="alle Stellen, mit ; trennen" aria-label="Kandidaten">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f'(x)=6x^2-6x-12=0\quad|:6\)</p><p>\(x^2-x-2=0\ \xrightarrow{\ pq\ }\ x_{1,2}=\tfrac12\pm\sqrt{\tfrac14+2}=\tfrac12\pm\tfrac32\)</p><p>\(x_1=-1,\ x_2=2\)</p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Berechne \(f''(-1)\).</p>
+    <div class="check" data-loesung="-18">
+      <span>\(f''(-1)=\)</span>
+      <input type="text" class="antwort" placeholder="Zahl" aria-label="f zwei Strich von minus 1">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f''(x)=12x-6\)</p><p>\(f''(-1)=-12-6=-18\)</p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>c)&nbsp; Was folgt daraus für \(x=-1\)?</p>
+    <div class="choice" data-correct="a"><button type="button" class="opt" data-val="a">Hochpunkt</button><button type="button" class="opt" data-val="b">Tiefpunkt</button><button type="button" class="opt" data-val="c">keine Aussage möglich</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>\(f''(-1)=-18&lt;0\) &nbsp;→ rechtsgekrümmt → <strong>Hochpunkt</strong>.</p></div></div>
+  </div>
+
+  <div class="teil">
+    <p>d)&nbsp; Und bei \(x=2\)?</p>
+    <div class="choice" data-correct="b"><button type="button" class="opt" data-val="a">Hochpunkt</button><button type="button" class="opt" data-val="b">Tiefpunkt</button><button type="button" class="opt" data-val="c">keine Aussage möglich</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>\(f''(2)=24-6=18&gt;0\) &nbsp;→ linksgekrümmt → <strong>Tiefpunkt</strong>.</p></div></div>
+  </div>
+
+  <div class="teil">
+    <p>e)&nbsp; Berechne die \(y\)-Koordinaten.</p>
+    <p>Hochpunkt \(H(-1\mid y)\):</p>
+    <div class="check" data-loesung="8">
+      <span>\(y=\)</span>
+      <input type="text" class="antwort" placeholder="Zahl" aria-label="y-Koordinate Hochpunkt">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f(-1)=-2-3+12+1=8\) &nbsp;→ \(H(-1\mid 8)\)</p></div>
+    </div>
+    <p>Tiefpunkt \(T(2\mid y)\):</p>
+    <div class="check" data-loesung="-19">
+      <span>\(y=\)</span>
+      <input type="text" class="antwort" placeholder="Zahl" aria-label="y-Koordinate Tiefpunkt">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f(2)=16-12-24+1=-19\) &nbsp;→ \(T(2\mid -19)\)</p></div>
+    </div>
+  </div>
+
+</section>
+
+<section class="aufgabe">
+  <h2>Aufgabe 3: Alles zusammen</h2>
+  <p>Gegeben ist \(f(x)=-x^3+3x^2\).</p>
+
+  <div class="teil">
+    <p>a)&nbsp; Bestimme die Extremstellen.</p>
+    <details><summary>Tipp</summary>
+      <div class="tipp"><p>\(f'(x)=-3x^2+6x\). Ausklammern!</p></div>
+    </details>
+    <div class="check" data-loesung="0; 2">
+      <span>\(x=\)</span>
+      <input type="text" class="antwort" placeholder="alle Stellen, mit ; trennen" aria-label="Extremstellen">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(-3x^2+6x=0\ \Leftrightarrow\ -3x\,(x-2)=0\ \Rightarrow\ x=0\) oder \(x=2\)</p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>b)&nbsp; Welche Art von Punkt liegt bei \(x=0\) vor? Nutze das \(f''\)-Kriterium.</p>
+    <div class="choice" data-correct="b"><button type="button" class="opt" data-val="a">Hochpunkt</button><button type="button" class="opt" data-val="b">Tiefpunkt</button><button type="button" class="opt" data-val="c">keine Aussage möglich</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>\(f''(x)=-6x+6\), &nbsp;\(f''(0)=6&gt;0\) &nbsp;→ <strong>Tiefpunkt</strong> \(T(0\mid0)\).</p><p>Zum Vergleich: \(f''(2)=-6&lt;0\) → Hochpunkt \(H(2\mid4)\).</p></div></div>
+  </div>
+
+  <div class="teil">
+    <p>c)&nbsp; Bestimme den Wendepunkt. Gib seine \(y\)-Koordinate ein.</p>
+    <div class="check" data-loesung="2">
+      <span>\(y=\)</span>
+      <input type="text" class="antwort" placeholder="Zahl" aria-label="y-Koordinate des Wendepunkts">
+      <button type="button" class="pruefen">Prüfen</button>
+      <span class="feedback"></span>
+      <span class="weg-link" style="display:none">Lösungsweg anzeigen</span>
+      <div class="weg loesung" style="display:none"><p>\(f''(x)=-6x+6=0\ \Leftrightarrow\ x=1\)</p><p>\(f'''(x)=-6\neq0\) &nbsp;→ Wendestelle</p><p>\(f(1)=-1+3=2\) &nbsp;→ \(W(1\mid 2)\)</p><p><span class="meta">Der Wendepunkt liegt genau in der Mitte zwischen Tiefpunkt \((0\mid0)\) und Hochpunkt \((2\mid4)\) – das gilt bei jeder Funktion 3. Grades.</span></p></div>
+    </div>
+  </div>
+
+  <div class="teil">
+    <p>d)&nbsp; ★ Grenzfall: Bei \(g(x)=x^4\) gilt \(g'(0)=0\) und \(g''(0)=0\). Was sagt das \(f''\)-Kriterium bei \(x=0\)?</p>
+    <div class="choice" data-correct="c"><button type="button" class="opt" data-val="a">Hochpunkt</button><button type="button" class="opt" data-val="b">Sattelpunkt</button><button type="button" class="opt" data-val="c">keine Aussage – Vorzeichenwechsel prüfen</button><span class="feedback"></span><span class="weg-link" style="display:none">Erklärung anzeigen</span><div class="weg loesung" style="display:none"><p>Bei \(g''(0)=0\) <strong>versagt</strong> das \(f''\)-Kriterium – es liefert keine Entscheidung.</p><p>Dann zurück zum Vorzeichenwechsel: \(g'(x)=4x^3\), &nbsp;\(g'(-1)=-4&lt;0\), &nbsp;\(g'(1)=4&gt;0\) → Wechsel von \(-\) zu \(+\) → <strong>Tiefpunkt</strong> \((0\mid0)\).</p><p><span class="meta">Merke: \(f''(x_0)=0\) heißt <em>nicht</em> automatisch Sattel- oder Wendepunkt.</span></p></div></div>
+  </div>
+
+</section>
+
+<p><a href="index.html">← zur Übersicht</a></p>
+
+<script src="schuljahr.js"></script>
+<script>schreibeDatum(9);</script>
+<script src="kontrolle.js?v=5"></script>
+<script src="choice.js?v=1"></script>
+</body>
+</html>
